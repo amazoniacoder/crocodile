@@ -1,1 +1,0 @@
-import{j as l}from"./index-CbaTREbK.js";const i=({as:t="p",size:e="base",weight:s="normal",color:x="primary",align:a="left",children:o,className:r=""})=>{const n=["text",`text--${e}`,`text--${s}`,`text--${x}`,`text--${a}`,r].filter(Boolean).join(" ");return l.jsx(t,{className:n,children:o})};export{i as T};

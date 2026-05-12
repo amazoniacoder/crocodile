@@ -1,37 +1,71 @@
-# Exclude ALL except build and specific docs
-
-# Exclude source code
-client/src/
-server/
-
-# Exclude all docs except 3 specific files
-docs/*
-!docs/api/
-docs/api/*
-!docs/api/API_DOCUMENTATION.md
-!docs/architecture/
-docs/architecture/*
-!docs/architecture/SYSTEM_OVERVIEW.md
-!docs/development/
-docs/development/*
-!docs/development/DEVELOPMENT_STANDARDS.md
-
-# Exclude development files
+# Dependencies
 node_modules/
-*.log
+**/node_modules/
+
+# Environment — never commit real secrets
 .env
-.env.*
+.env.local
+.env.production
 !.env.example
+
+# Build output
+dist/
+client/dist/
+**/dist/
+
+# Logs
+logs/
+*.log
+!logs/.gitkeep
+
+# SSL certificates — never commit
+ssl/cert.pem
+ssl/key.pem
+ssl/*.pem
+ssl/*.key
+
+# Database backups — contain real data
+server/db/backup/
+
+# Temporary / test files in root
+tmp_*.json
+*.xml
+aj_test.xml
+dzen_test.xml
+lenta_world.xml
+rbc_test.xml
+tmp_rss.xml
+tmp_meduza.xml
+metrics_output.txt
+tmp_all.json
+tmp_articles.json
+tmp_articles2.json
+tmp_channels.json
+tmp_p1.json
+tmp_p2.json
+
+# Duplicate client folders (local dev artifacts)
+client — копия/
+client — копия (2)/
+client — копия (3)/
+
+# Misc local files
+NOW()
+0
+⚠️
+aj_test.xml
+.gitignore.demo
+
+# IDE
 .vscode/
 .idea/
 
-# Exclude other files
-.github/
-*.md
-!README.md
-*.zip
-*.tar.gz
-clock2/
-SERVER_DEPLOY_COMMANDS.md
-QUICK_DEPLOY.md
-.gitignore.demo
+# OS
+.DS_Store
+Thumbs.db
+
+# Test results
+test-results/
+
+# PM2
+.pm2/

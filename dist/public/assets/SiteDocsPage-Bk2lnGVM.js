@@ -1,1 +1,0 @@
-import{j as t}from"./index-CbaTREbK.js";import{S as r,M as s}from"./MinimalContent-opIDnsc_.js";import"./index-BXwPHD9o.js";const a=()=>t.jsx(r,{libraryType:"site",className:"site-docs-page",children:t.jsx(s,{libraryType:"site"})});export{a as SiteDocsPage,a as default};

@@ -1,1 +1,0 @@
-import{j as r}from"./index-CbaTREbK.js";const g=({level:a,children:s,variant:n="default",className:e="",id:o})=>{const t=`h${a}`,i=["heading",`heading--${a}`,`heading--${n}`,e].filter(Boolean).join(" ");return r.jsx(t,{className:i,id:o,children:s})};export{g as H};

@@ -1,1 +1,0 @@
-import{j as t}from"./index-CbaTREbK.js";import{S as r,M as e}from"./MinimalContent-opIDnsc_.js";import"./index-BXwPHD9o.js";const s=()=>t.jsx(r,{libraryType:"texteditor",className:"text-editor-docs-page",children:t.jsx(e,{libraryType:"texteditor"})});export{s as TextEditorDocsPage,s as default};

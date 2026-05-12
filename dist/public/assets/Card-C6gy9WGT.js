@@ -1,1 +1,0 @@
-import{j as c}from"./index-BA2xtOI7.js";const l=({bordered:r=!1,shadow:a=!1,interactive:e=!1,className:s="",children:o,...t})=>{const d=["card","text-primary","overflow-hidden",r&&"card--bordered",r&&"border",a&&"card--shadow",e&&"card--interactive",s].filter(Boolean).join(" ");return c.jsx("div",{className:d,...t,children:o})};export{l as C};
