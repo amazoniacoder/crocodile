@@ -1,0 +1,285 @@
+/* Contact Panel Styles */
+
+/* Backdrop */
+.contact-panel__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1001; /* Между weather-page__meta-tab (1001) и contact-panel (1002) */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.contact-panel__backdrop--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Panel Base — выезжает справа в центр экрана */
+.contact-panel {
+  position: fixed;
+  top: 50%;
+  right: -400px;
+  transform: translateY(-50%);
+  width: 400px;
+  max-height: 90vh;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+  transition: right 0.3s ease-out;
+  overflow: hidden;
+  z-index: 1002; /* Выше weather-page__meta-tab (1001) */
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-panel--open {
+  right: calc(50% - 200px); /* Центр экрана */
+}
+
+@media (max-width: 767px) {
+  .contact-panel {
+    width: 100vw;
+    right: -100vw;
+    top: 0;
+    transform: none;
+    height: 100dvh;
+    max-height: none;
+    border-radius: 0;
+    z-index: 1002; /* Выше weather-page__meta-tab */
+  }
+
+  .contact-panel--open {
+    right: 0;
+  }
+}
+
+/* Header */
+.contact-panel__header {
+  padding: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.contact-panel__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+}
+
+/* Content */
+.contact-panel__content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-lg);
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.form-field label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-family: inherit;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.form-field input:disabled,
+.form-field select:disabled,
+.form-field textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-field__hint {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+/* Captcha field */
+.form-field--captcha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.form-field--captcha label {
+  align-self: flex-start;
+}
+
+.form-field__captcha-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .form-field__captcha-wrapper {
+    transform: scale(0.85);
+    transform-origin: center;
+  }
+}
+
+.form-error {
+  padding: var(--space-3);
+  background: var(--color-error-light);
+  color: var(--color-error);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  border: 1px solid var(--color-error);
+}
+
+/* Floating Button — такой же как кнопка фильтров */
+.floating-btn--contact {
+  position: absolute;
+  top: 103px;
+  right: -1px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--color-primary-rgb), 0.25);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  cursor: pointer;
+  box-shadow: -3px 0 10px rgba(0, 0, 0, 0.12);
+  transition: background var(--transition-fast), right 0.3s ease-out, top 0.3s ease-out, transform 0.3s ease-out, border-radius 0.3s ease-out;
+  z-index: 99;
+}
+
+.floating-btn--contact:hover,
+.floating-btn--contact.floating-btn--active {
+  background: var(--color-primary);
+}
+
+.floating-btn--contact.floating-btn--active {
+  position: fixed;
+  top: 103px;
+  right: calc(50% - 200px - 48px);
+  transform: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+@media (max-width: 767px) {
+  .floating-btn--contact {
+    position: fixed;
+    top: 130px;
+    bottom: 57px;
+    right: 3px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1003;
+  }
+
+  .floating-btn--contact.floating-btn--active {
+    right: 6px;
+    left: auto;
+    top: 6px;
+    bottom: auto;
+    transform: none;
+  }
+}
+
+/* Button full width */
+.btn--full-width {
+  width: 100%;
+}
+
+/* Submit button */
+.contact-form__submit {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+  font-family: inherit;
+  color: white;
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  min-height: 2.75rem;
+}
+
+.contact-form__submit:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.contact-form__submit:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  .form-error {
+    background: rgba(220, 38, 38, 0.1);
+    color: #fca5a5;
+    border-color: #991b1b;
+  }
+}

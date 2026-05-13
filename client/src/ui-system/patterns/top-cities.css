@@ -1,0 +1,186 @@
+/* Top Cities Table Styles */
+
+.top-cities {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.top-cities--loading,
+.top-cities--empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.top-cities__summary {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.top-cities__stat-label {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.top-cities__stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.top-cities__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.top-cities__row {
+  display: grid;
+  grid-template-columns: 32px 180px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.top-cities__row:hover {
+  background: #f9fafb;
+}
+
+.top-cities__rank {
+  font-size: 14px;
+  font-weight: 700;
+  color: #9ca3af;
+  text-align: center;
+}
+
+.top-cities__location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-cities__flag {
+  font-size: 28px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.top-cities__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.top-cities__city {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.top-cities__country {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.top-cities__metrics {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.top-cities__bar-container {
+  flex: 1;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.top-cities__bar {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #059669);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.top-cities__numbers {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 90px;
+  justify-content: flex-end;
+}
+
+.top-cities__visits {
+  font-size: 15px;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.top-cities__percent {
+  font-size: 12px;
+  color: #6b7280;
+  min-width: 42px;
+  text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .top-cities__row {
+    grid-template-columns: 28px 1fr;
+    gap: 8px;
+  }
+
+  .top-cities__location {
+    grid-column: 2;
+  }
+
+  .top-cities__metrics {
+    grid-column: 1 / -1;
+    margin-top: 4px;
+  }
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  .top-cities {
+    background: #1f2937;
+  }
+
+  .top-cities__summary {
+    border-bottom-color: #374151;
+  }
+
+  .top-cities__stat-label,
+  .top-cities__country,
+  .top-cities__percent {
+    color: #9ca3af;
+  }
+
+  .top-cities__stat-value,
+  .top-cities__city {
+    color: #f9fafb;
+  }
+
+  .top-cities__row:hover {
+    background: #374151;
+  }
+
+  .top-cities__bar-container {
+    background: #374151;
+  }
+}

@@ -1,0 +1,7 @@
+/**
+ * BlogPro Header System Styles
+ * Import all header-related styles
+ */
+
+@import './header.css';
+@import './header-icons.css';

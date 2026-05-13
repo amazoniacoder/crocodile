@@ -1,0 +1,79 @@
+/* switch.css */
+
+/* ─── Switch ─────────────────────────────────────────────────────────────── */
+
+.monitor-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--color-error);
+  border: none;
+  cursor: pointer;
+  transition: background 0.25s ease;
+  padding: 0;
+}
+
+.monitor-switch--on { background: var(--color-primary); }
+.monitor-switch:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.monitor-switch__input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.monitor-switch__track {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: var(--color-error);
+  transition: background 0.25s ease;
+  cursor: pointer;
+}
+
+.monitor-switch__input:checked + .monitor-switch__track {
+  background: var(--color-primary);
+}
+
+.monitor-switch__input:disabled + .monitor-switch__track {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.monitor-switch__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  transition: transform 0.25s ease;
+  pointer-events: none;
+}
+
+/* Кнопка с thumb (кабинет мониторинга, form/Switch) */
+.monitor-switch--on .monitor-switch__thumb {
+  transform: translateX(20px);
+}
+
+.monitor-switch__input:checked + .monitor-switch__track > .monitor-switch__thumb {
+  transform: translateX(20px);
+}
+
+.monitor-switch-field {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.monitor-switch__label {
+  margin-left: var(--space-sm);
+  color: var(--text-primary);
+  cursor: pointer;
+}

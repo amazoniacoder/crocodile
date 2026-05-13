@@ -1,0 +1,326 @@
+/* 
+ * Form Component - BEM Style
+ * 
+ * Block:     .form
+ * Elements:  .form__group, .form__label, .form__message, .form__actions
+ * Modifiers: .form--inline, .form__message--error, .form__message--success
+ */
+
+/* Base form */
+.form {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Form elements */
+.form__group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.form__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.form__message {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.form__message--error {
+  color: var(--color-error);
+}
+
+.form__message--success {
+  color: var(--color-success);
+}
+
+.form__message--info {
+  color: var(--color-info);
+}
+
+.form__field {
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--input-bg);
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form__field:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.2);
+}
+
+.form__field--textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.form__title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Form modifiers */
+.form--inline {
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.form--inline .form__group {
+  flex: 1;
+}
+
+.form--card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Switch Component - Exact match from old system */
+.switch {
+  display: inline-flex;
+  height: 1.5rem;
+  width: 2.75rem;
+  flex-shrink: 0;
+  cursor: pointer;
+  align-items: center;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  transition: background-color 0.2s ease;
+}
+
+.switch:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring), 0 0 0 4px var(--background);
+}
+
+.switch:disabled {
+  /* disabled state handled by .disabled utility class */
+}
+
+.switch[data-state="checked"] {
+  background-color: var(--primary);
+}
+
+.switch[data-state="unchecked"] {
+  background-color: var(--input);
+}
+
+.switch-thumb {
+  pointer-events: none;
+  display: block;
+  height: 1.25rem;
+  width: 1.25rem;
+  border-radius: 9999px;
+  background-color: var(--background);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.switch[data-state="checked"] .switch-thumb {
+  transform: translateX(1.25rem);
+}
+
+.switch[data-state="unchecked"] .switch-thumb {
+  transform: translateX(0);
+}
+
+/* Compact Captcha Component - Exact match from old system */
+.captcha {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.captcha__display {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.captcha__code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 32px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 1.5px solid var(--border-color);
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+  user-select: none;
+  position: relative;
+}
+
+.captcha__code::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.02) 2px,
+    rgba(0, 0, 0, 0.02) 4px
+  );
+  pointer-events: none;
+}
+
+.captcha__refresh {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-secondary);
+  border: 1.5px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.captcha__refresh:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.captcha__refresh svg {
+  width: 14px;
+  height: 14px;
+}
+
+.captcha__input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.captcha__input {
+  width: 50px;
+  height: 32px;
+  padding: 0 0.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  border: 1.5px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  transition: border-color 0.2s ease;
+}
+
+.captcha__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.1);
+}
+
+.captcha__input--error {
+  border-color: var(--color-error);
+}
+
+.captcha__verify {
+  width: 50px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.captcha__verify:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+}
+
+.captcha__verify:disabled {
+  /* disabled state handled by .disabled utility class */
+}
+
+.captcha__message {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  margin-top: 0.25rem;
+  white-space: nowrap;
+}
+
+.captcha__message--error {
+  color: var(--color-error);
+}
+
+.captcha__message--success {
+  color: var(--color-success);
+}
+
+/* Textarea Component - removed duplicates, using components/input/textarea.css */
+
+/* Select Component - removed duplicates, using components/input/select.css */
+
+.select-trigger [data-placeholder] {
+  /* placeholder color handled by .text-secondary utility class */
+}
+
+.select-content {
+  position: relative;
+  z-index: 50;
+  max-height: 300px;
+  min-width: 8rem;
+  overflow-y: auto;
+  border-radius: var(--radius-md);
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-lg);
+}
+
+.select-item {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  transition: background-color 0.2s ease;
+}
+
+.select-item:hover {
+  background-color: var(--bg-hover);
+}
+
+.select-item--selected {
+  background-color: var(--color-primary);
+  color: white;
+}

@@ -1,0 +1,12 @@
+/**
+ * BlogPro Design System - Design Tokens
+ * Main entry point for all design tokens
+ */
+
+@import './colors.css';
+@import './spacing.css';
+@import './typography.css';
+@import './effects.css';
+
+/* Theme System Integration */
+@import '../themes/index.css';

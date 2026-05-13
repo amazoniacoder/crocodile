@@ -1,0 +1,40 @@
+.select-trigger {
+  display: flex;
+  height: 2.5rem;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  border: 2px solid #d1d5db;
+  background-color: var(--input-bg);
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  transition: border-color 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 16px 12px;
+  padding-right: 2.5rem;
+}
+
+.select-trigger:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.1);
+}
+
+.select-trigger:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: var(--bg-secondary);
+}
+
+.select-trigger--error {
+  border-color: var(--color-error);
+}
+
+.select-trigger--success {
+  border-color: var(--color-success);
+}

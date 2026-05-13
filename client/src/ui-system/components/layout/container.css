@@ -1,0 +1,36 @@
+/**
+ * Universal Container Component
+ * Used in 11 pages - highest impact component
+ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width, 1200px);
+  margin: 0 auto;
+  padding: 0 var(--container-padding, 1rem);
+}
+
+/* Container variants */
+
+.container--md {
+  max-width: 768px;
+}
+
+.container--lg {
+  max-width: 1024px;
+}
+
+.container--xl {
+  max-width: 1280px;
+}
+
+.container--full {
+  max-width: none;
+}
+
+/* Responsive padding */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-3);
+  }
+}

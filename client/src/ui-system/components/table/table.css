@@ -1,0 +1,80 @@
+/**
+ * Table Component Styles
+ * BEM methodology for table components
+ */
+
+.table__container {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-bg-primary);
+}
+
+.table--bordered {
+  border: 1px solid var(--color-border);
+}
+
+.table--striped .table__row:nth-child(even) {
+  background-color: var(--color-bg-secondary);
+}
+
+.table--hover .table__row:hover {
+  background-color: var(--color-bg-hover, rgba(0, 0, 0, 0.05));
+}
+
+.table--compact .table__cell,
+.table--compact .table__header {
+  padding: 0.5rem;
+}
+
+.table__head {
+  background-color: var(--color-bg-secondary);
+}
+
+.table__header {
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-text);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.table__body {
+  background-color: var(--color-bg-primary);
+}
+
+.table__row {
+  transition: background-color 0.2s ease;
+}
+
+.table__row--selected {
+  background-color: var(--color-primary-light, rgba(59, 130, 246, 0.1));
+}
+
+.table__row--clickable {
+  cursor: pointer;
+}
+
+.table__cell {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+/* Dark mode support */
+.dark .table {
+  background-color: var(--color-bg-primary);
+}
+
+.dark .table__head {
+  background-color: var(--color-bg-secondary);
+}
+
+.dark .table--hover .table__row:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}

@@ -1,0 +1,99 @@
+/**
+ * BlogPro Theme System
+ * Universal theme imports and base configuration
+ */
+
+/* Import light theme (default) */
+@import './light.css';
+
+/* Import dark theme */
+@import './dark.css';
+
+/* Theme transition animations */
+* {
+  transition: 
+    background-color var(--transition-normal, 0.25s ease),
+    border-color var(--transition-normal, 0.25s ease),
+    color var(--transition-normal, 0.25s ease),
+    box-shadow var(--transition-normal, 0.25s ease);
+}
+
+/* Disable transitions during theme switching to prevent flashing */
+.theme-switching * {
+  transition: none !important;
+}
+
+/* Auto theme media query support */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light):not(.dark) {
+    /* Apply dark theme variables when system prefers dark and no explicit theme is set */
+    --theme: 'auto-dark';
+    
+    /* Copy dark theme variables for auto mode */
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --text-inverse: #0f172a;
+    --text-accent: #60a5fa;
+    
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-alt: #334155;
+    --bg-hover: #475569;
+    --bg-active: #64748b;
+    --bg-overlay: rgba(0, 0, 0, 0.8);
+    
+    --border-color: #334155;
+    --border-hover: #475569;
+    --border-focus: #60a5fa;
+    
+    --card-bg: #1e293b;
+    --header-bg: #0f172a;
+    --footer-bg: #1e293b;
+    --sidebar-bg: #1e293b;
+    --modal-bg: #1e293b;
+    
+    --input-bg: #334155;
+    --input-border: #475569;
+    --input-focus: #60a5fa;
+    --input-placeholder: #94a3b8;
+    
+    --button-primary-bg: #f1f5f9;
+    --button-primary-hover: #e2e8f0;
+    --button-primary-text: #0f172a;
+    --button-secondary-bg: transparent;
+    --button-secondary-hover: #334155;
+    --button-secondary-text: #cbd5e1;
+    --button-secondary-border: #475569;
+  }
+}
+
+/* Theme-specific component adjustments */
+.light {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border-color: #000000;
+    --text-muted: var(--text-secondary);
+  }
+  
+  .dark {
+    --border-color: #ffffff;
+    --text-muted: var(--text-secondary);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

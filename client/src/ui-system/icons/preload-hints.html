@@ -1,0 +1,15 @@
+<!-- Icon Preload Hints -->
+<link rel="preload" href="/ui-system/icons/dist/sprite-minimal.svg" as="image" type="image/svg+xml">
+<link rel="modulepreload" href="/ui-system/icons/components/Icon.js">
+
+<!-- Critical icons for above-the-fold content -->
+<style>
+  .icon-preload {
+    content: url('/ui-system/icons/dist/sprite-minimal.svg#bp-icon-user');
+    content: url('/ui-system/icons/dist/sprite-minimal.svg#bp-icon-search');
+    content: url('/ui-system/icons/dist/sprite-minimal.svg#bp-icon-hamburger');
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+  }
+</style>

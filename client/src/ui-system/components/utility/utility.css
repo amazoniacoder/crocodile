@@ -1,0 +1,271 @@
+/**
+ * BlogPro Utility Components Styles
+ * BEM Methodology: .divider, .spacer, .container, .stack
+ */
+
+/* Divider Styles */
+.divider {
+  border: none;
+  background: var(--border-color);
+}
+
+.divider--horizontal {
+  width: 100%;
+  height: 1px;
+}
+
+.divider--vertical {
+  width: 1px;
+  display: inline-block;
+}
+
+.divider--dashed {
+  background: none;
+  border-top: 1px dashed var(--border-color);
+}
+
+.divider--vertical.divider--dashed {
+  border-top: none;
+  border-left: 1px dashed var(--border-color);
+}
+
+.divider--dotted {
+  background: none;
+  border-top: 1px dotted var(--border-color);
+}
+
+.divider--vertical.divider--dotted {
+  border-top: none;
+  border-left: 1px dotted var(--border-color);
+}
+
+/* Divider spacing */
+.divider--horizontal.divider--sm {
+  margin: 8px 0;
+}
+
+.divider--horizontal.divider--md {
+  /* margin handled by .m-4 utility class */
+}
+
+.divider--horizontal.divider--lg {
+  margin: 24px 0;
+}
+
+.divider--vertical.divider--sm {
+  margin: 0 8px;
+}
+
+.divider--vertical.divider--md {
+  /* margin handled by .m-4 utility class */
+}
+
+.divider--vertical.divider--lg {
+  margin: 0 24px;
+}
+
+/* Spacer Styles */
+.spacer {
+  flex-shrink: 0;
+}
+
+.spacer--xs.spacer--y {
+  height: 4px;
+}
+
+.spacer--sm.spacer--y {
+  height: 8px;
+}
+
+.spacer--md.spacer--y {
+  height: 16px;
+}
+
+.spacer--lg.spacer--y {
+  height: 24px;
+}
+
+.spacer--xl.spacer--y {
+  height: 32px;
+}
+
+.spacer--2xl.spacer--y {
+  height: 48px;
+}
+
+.spacer--xs.spacer--x {
+  width: 4px;
+  display: inline-block;
+}
+
+.spacer--sm.spacer--x {
+  width: 8px;
+  display: inline-block;
+}
+
+.spacer--md.spacer--x {
+  width: 16px;
+  display: inline-block;
+}
+
+.spacer--lg.spacer--x {
+  width: 24px;
+  display: inline-block;
+}
+
+.spacer--xl.spacer--x {
+  width: 32px;
+  display: inline-block;
+}
+
+.spacer--2xl.spacer--x {
+  width: 48px;
+  display: inline-block;
+}
+
+.spacer--xs.spacer--both {
+  width: 4px;
+  height: 4px;
+}
+
+.spacer--sm.spacer--both {
+  width: 8px;
+  height: 8px;
+}
+
+.spacer--md.spacer--both {
+  width: 16px;
+  height: 16px;
+}
+
+.spacer--lg.spacer--both {
+  width: 24px;
+  height: 24px;
+}
+
+.spacer--xl.spacer--both {
+  width: 32px;
+  height: 32px;
+}
+
+.spacer--2xl.spacer--both {
+  width: 48px;
+  height: 48px;
+}
+
+
+
+/* Stack Styles */
+.stack {
+  /* display: flex - use .flex utility class */
+}
+
+.stack--row {
+  flex-direction: row;
+}
+
+.stack--column {
+  /* flex-direction: column - use .flex-col utility class */
+}
+
+.stack--wrap {
+  flex-wrap: wrap;
+}
+
+/* Stack spacing */
+.stack--row.stack--spacing-xs > * + * {
+  margin-left: 4px;
+}
+
+.stack--row.stack--spacing-sm > * + * {
+  margin-left: 8px;
+}
+
+.stack--row.stack--spacing-md > * + * {
+  /* margin handled by .m-4 utility class */
+}
+
+.stack--row.stack--spacing-lg > * + * {
+  margin-left: 24px;
+}
+
+.stack--row.stack--spacing-xl > * + * {
+  margin-left: 32px;
+}
+
+.stack--column.stack--spacing-xs > * + * {
+  margin-top: 4px;
+}
+
+.stack--column.stack--spacing-sm > * + * {
+  margin-top: 8px;
+}
+
+.stack--column.stack--spacing-md > * + * {
+  /* margin handled by .m-4 utility class */
+}
+
+.stack--column.stack--spacing-lg > * + * {
+  margin-top: 24px;
+}
+
+.stack--column.stack--spacing-xl > * + * {
+  margin-top: 32px;
+}
+
+/* Stack alignment */
+.stack--align-start {
+  align-items: flex-start;
+}
+
+.stack--align-center {
+  align-items: center;
+}
+
+.stack--align-end {
+  align-items: flex-end;
+}
+
+.stack--align-stretch {
+  align-items: stretch;
+}
+
+/* Stack justification */
+.stack--justify-start {
+  justify-content: flex-start;
+}
+
+.stack--justify-center {
+  justify-content: center;
+}
+
+.stack--justify-end {
+  justify-content: flex-end;
+}
+
+.stack--justify-between {
+  justify-content: space-between;
+}
+
+.stack--justify-around {
+  justify-content: space-around;
+}
+
+.stack--justify-evenly {
+  justify-content: space-evenly;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container--padding-sm {
+    padding: 0 12px;
+  }
+  
+  .container--padding-md {
+    padding: 0 16px;
+  }
+  
+  .container--padding-lg {
+    padding: 0 20px;
+  }
+}

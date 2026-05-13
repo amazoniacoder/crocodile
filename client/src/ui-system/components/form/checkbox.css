@@ -1,0 +1,89 @@
+/**
+ * BlogPro Checkbox Component Styles
+ * BEM Methodology: .checkbox
+ */
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  /* user select handled by .select-none utility class */
+}
+
+.checkbox__input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.checkbox__box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm, 0.125rem);
+  background: var(--input-bg);
+  transition: all var(--transition-fast, 0.15s ease);
+}
+
+.checkbox--sm .checkbox__box {
+  width: 16px;
+  height: 16px;
+}
+
+.checkbox--md .checkbox__box {
+  width: 20px;
+  height: 20px;
+}
+
+.checkbox--lg .checkbox__box {
+  width: 24px;
+  height: 24px;
+}
+
+.checkbox__input:checked + .checkbox__box {
+  background: var(--primary-600);
+  border-color: var(--primary-600);
+}
+
+.checkbox__input:indeterminate + .checkbox__box {
+  background: var(--primary-600);
+  border-color: var(--primary-600);
+}
+
+.checkbox__input:focus + .checkbox__box {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--primary-200);
+}
+
+.checkbox__icon {
+  color: white;
+}
+
+.checkbox__label {
+  color: var(--text-primary);
+}
+
+.checkbox--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.checkbox--card {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md, 0.375rem);
+  background: var(--card-bg);
+  transition: all var(--transition-fast, 0.15s ease);
+}
+
+.checkbox--card:hover {
+  border-color: var(--border-hover);
+}
+
+.checkbox--card .checkbox__input:checked ~ * {
+  border-color: var(--primary-600);
+  background: var(--primary-50);
+}

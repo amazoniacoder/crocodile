@@ -1,0 +1,387 @@
+/**
+ * BlogPro Captcha Plugin - Main Styles
+ * Professional, minimalist styling for the puzzle captcha
+ */
+
+/* Captcha Button */
+.captcha-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  background: var(--bg-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.captcha-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.captcha-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.captcha-button--sm {
+  width: 32px;
+  height: 32px;
+}
+
+.captcha-button--md {
+  width: 40px;
+  height: 40px;
+}
+
+.captcha-button--lg {
+  width: 48px;
+  height: 48px;
+}
+
+.captcha-button--unsolved {
+  border-color: var(--color-primary);
+  color: var(--text-primary);
+}
+
+.captcha-button--solved {
+  border-color: #10b981;
+  background: #f0fdf4;
+  color: #10b981;
+}
+
+.captcha-button--solved .captcha-button__icon svg {
+  color: #10b981;
+}
+
+.captcha-button--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.captcha-button__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.captcha-button__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Modal Overlay */
+.captcha-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1004; /* Выше contact-panel (1002) и кнопки (1003) */
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Modal */
+.captcha-modal {
+  background: var(--bg-primary);
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  width: 400px;
+  max-width: 90vw;
+  max-height: 90vh;
+  animation: scaleIn 0.2s ease;
+  border: 1px solid var(--border-color);
+}
+
+@keyframes scaleIn {
+  from { 
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.captcha-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.captcha-modal__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.captcha-modal__close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.captcha-modal__close:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.captcha-modal__content {
+  padding: 1.5rem;
+}
+
+.captcha-modal__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.captcha-modal__loading .spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border-color);
+  border-top: 3px solid var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.captcha-modal__error {
+  text-align: center;
+  padding: 2rem;
+}
+
+.captcha-modal__error button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.captcha-modal__error button:hover {
+  background: var(--color-primary-dark);
+}
+
+/* Puzzle Canvas */
+.puzzle-canvas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-height: 280px;
+  position: relative;
+}
+
+.puzzle-canvas__main {
+  position: relative;
+  width: 200px;
+  height: 150px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.puzzle-canvas__main--drag-over {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.puzzle-canvas__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.puzzle-canvas__missing-area {
+  position: absolute;
+  border: 2px dashed #dc3545;
+  background: rgba(220, 53, 69, 0.1);
+  pointer-events: none;
+}
+
+.puzzle-canvas__instructions {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin: 0;
+}
+
+.puzzle-canvas__pieces {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Puzzle Pieces */
+.puzzle-piece {
+  cursor: grab;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  background: var(--bg-primary);
+  padding: 4px;
+}
+
+.puzzle-piece:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-color: var(--color-primary);
+}
+
+.puzzle-piece:active {
+  cursor: grabbing;
+}
+
+.puzzle-piece--dragging {
+  opacity: 0.8;
+  transform: rotate(3deg) scale(1.1);
+  z-index: 10;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--color-primary);
+  background: var(--bg-primary);
+}
+
+.puzzle-piece__image {
+  display: block;
+  border-radius: 4px;
+  max-width: 60px;
+  max-height: 50px;
+  pointer-events: none;
+}
+
+/* Validation status indicator */
+.puzzle-canvas__status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  margin: 0 auto 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  animation: slideDown 0.3s ease;
+  min-width: 150px;
+  width: fit-content;
+}
+
+.puzzle-canvas__status--validating {
+  background: var(--color-primary);
+  color: white;
+}
+
+.puzzle-canvas__status--success {
+  background: #10b981;
+  color: white;
+}
+
+.puzzle-canvas__status--error {
+  background: #ef4444;
+  color: white;
+}
+
+.puzzle-canvas__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.puzzle-canvas__icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.puzzle-canvas__icon--success {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.puzzle-canvas__icon--error {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .captcha-modal {
+    width: 350px;
+    margin: 1rem;
+  }
+  
+  .captcha-modal__header,
+  .captcha-modal__content {
+    padding: 1rem;
+  }
+  
+  .puzzle-canvas__main {
+    width: 180px;
+    height: 135px;
+  }
+  
+  .puzzle-piece__image {
+    max-width: 50px;
+    max-height: 40px;
+  }
+}

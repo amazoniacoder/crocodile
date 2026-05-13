@@ -1,0 +1,218 @@
+/* donate.css — секция доната и виджет ЮMoney */
+
+.about__donate-text {
+  margin: 0 0 var(--space-4);
+  color: var(--text-secondary);
+  line-height: 1.625;
+}
+
+.about__donate-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+/* Карточка метода */
+.about__donate-item {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-alt);
+  padding: var(--space-3) var(--space-4);
+}
+
+/* Шапка карточки: логотип + мета */
+.about__donate-item-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.about__donate-item-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.about__donate-item-title {
+  margin: 0;
+  color: var(--text-primary);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-sm);
+}
+
+/* Строка реквизита */
+.about__donate-item-requisite {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+}
+
+.about__donate-item-value {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-2);
+  word-break: break-all;
+  line-height: 1.4;
+}
+
+/* Кнопки копирования и QR */
+.about__donate-copy,
+.about__donate-qr-btn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--card-bg);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.about__donate-copy:hover,
+.about__donate-qr-btn:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background: var(--color-primary-bg);
+}
+
+.about__donate-copy--done {
+  color: var(--color-success);
+  border-color: var(--color-success);
+  background: var(--color-success-light);
+}
+
+/* QR-блок */
+.about__donate-qr {
+  margin-top: var(--space-3);
+  display: flex;
+  justify-content: center;
+  padding: var(--space-3);
+  background: #fff;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.about__donate-item-note {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+.about__donate-item-link {
+  display: inline-block;
+  margin-top: var(--space-2);
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+}
+
+.about__donate-item-link:hover {
+  text-decoration: underline;
+}
+
+/* Предупреждение fallback */
+.about__donate-warning {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-sm);
+  color: var(--color-warning);
+  background: var(--color-warning-light);
+  border: 1px solid color-mix(in oklab, var(--color-warning) 35%, transparent);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+}
+
+/* ── YooMoney виджет ─────────────────────────────────────────── */
+
+.about__donate-ym-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.about__donate-ym-label {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.about__donate-ym-presets {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.about__donate-ym-preset {
+  flex: 1;
+  min-width: 56px;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-secondary);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.about__donate-ym-preset:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.about__donate-ym-preset--active {
+  background: var(--color-primary-bg);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.about__donate-ym-input {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color var(--transition-fast);
+}
+
+.about__donate-ym-input:focus {
+  border-color: var(--color-primary);
+}
+
+.about__donate-ym-pay {
+  width: 100%;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: #fff;
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.about__donate-ym-pay:hover:not(:disabled) {
+  opacity: 0.88;
+}
+
+.about__donate-ym-pay:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

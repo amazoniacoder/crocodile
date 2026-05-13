@@ -1,0 +1,54 @@
+/**
+ * Theme Toggle Component - Header Slide Menu
+ * Matches old version exactly
+ */
+
+.theme-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.theme-toggle:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.theme-toggle__icon {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--transition-normal),
+              opacity var(--transition-normal);
+}
+
+.theme-toggle__icon--sun {
+  position: absolute;
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+.theme-toggle__icon--moon {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+/* Dark theme states */
+.dark .theme-toggle__icon--sun {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+.dark .theme-toggle__icon--moon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}

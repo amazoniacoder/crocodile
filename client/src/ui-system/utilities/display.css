@@ -1,0 +1,213 @@
+/* Display Utilities */
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.grid { display: grid; }
+.grid-cols-1 { 
+  display: grid;
+  grid-template-columns: 1fr; 
+}
+.hidden { display: none; }
+
+/* Scrollbar Utilities */
+.scrollbar-hidden {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* List Utilities */
+.list-none {
+  list-style: none;
+}
+
+/* Border Utilities */
+.border {
+  border: 1px solid var(--border-color);
+}
+
+.border-none {
+  border: none;
+}
+
+.rounded {
+  border-radius: 4px;
+}
+
+/* Shadow Utilities */
+.shadow-none {
+  box-shadow: none;
+}
+
+.shadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Overflow Utilities */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* Whitespace Utilities */
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+/* Background Utilities */
+.bg-none {
+  background: none;
+}
+
+.bg-primary {
+  background-color: var(--bg-primary);
+}
+
+.hover-bg {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+/* Cursor Utilities */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Text Utilities */
+.no-underline {
+  text-decoration: none;
+}
+
+/* Outline Utilities - USE WITH CAUTION FOR ACCESSIBILITY */
+.outline-none {
+  outline: none;
+}
+
+/* Visibility */
+.visible { visibility: visible; }
+.invisible { visibility: hidden; }
+
+/* Position */
+.static { position: static; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+
+/* Size Utilities */
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.min-h-screen { min-height: 100vh; }
+.max-w-full { max-width: 100%; }
+
+/* Alignment utilities */
+.align-middle { vertical-align: middle; }
+
+/* Typography utilities */
+.leading-none { line-height: 1; }
+
+/* Flexbox Utilities */
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.flex-col { flex-direction: column; }
+.flex-1 { flex: 1; }
+.gap-4 { gap: 1rem; }
+
+/* Grid Utilities */
+.grid-auto-fit { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+/* Aspect Ratio Utilities */
+.aspect-video { aspect-ratio: 16/9; }
+.aspect-square { aspect-ratio: 1; }
+
+/* Object Fit Utilities */
+.object-cover { object-fit: cover; }
+.object-contain { object-fit: contain; }
+
+/* Focus Utilities */
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Backdrop Filter Utilities */
+.backdrop-blur { backdrop-filter: blur(8px); }
+.backdrop-blur-sm { backdrop-filter: blur(4px); }
+.backdrop-blur-lg { backdrop-filter: blur(12px); }
+
+/* Filter Utilities */
+.brightness-90 { filter: brightness(0.9); }
+.brightness-110 { filter: brightness(1.1); }
+.brightness-75 { filter: brightness(0.75); }
+
+/* User Select Utilities */
+.select-none { user-select: none; }
+.select-text { user-select: text; }
+.select-all { user-select: all; }
+
+/* Text Utilities */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.break-words { word-break: break-word; }
+.break-all { word-break: break-all; }
+.break-normal { word-break: normal; }
+.tabular-nums { font-variant-numeric: tabular-nums; }
+.proportional-nums { font-variant-numeric: proportional-nums; }
+
+/* Scroll Behavior Utilities */
+.scroll-smooth { scroll-behavior: smooth; }
+.scroll-auto { scroll-behavior: auto; }
+
+/* CSS Containment Utilities */
+.contain-layout { contain: layout style paint; }
+.contain-strict { contain: strict; }
+.contain-content { contain: content; }
+
+/* Opacity Utilities */
+.opacity-100 { opacity: 1; }
+
+/* State Utilities */
+.disabled { 
+  opacity: 0.5; 
+  cursor: not-allowed; 
+}
+
+/* Transform utilities */
+.translate-x-center { transform: translateX(-50%); }
+.translate-y-center { transform: translateY(-50%); }
+
+/* Will-change Utilities */
+.will-change-transform { will-change: transform; }
+.will-change-opacity { will-change: opacity; }
+.will-change-auto { will-change: auto; }
+
+/* Isolation Utilities */
+.isolate { isolation: isolate; }
+.isolation-auto { isolation: auto; }
+
+/* Pointer Events Utilities */
+.pointer-events-none { pointer-events: none; }
+.pointer-events-auto { pointer-events: auto; }
+
+/* Z-Index */
+.z-0 { z-index: 0; }
+.z-10 { z-index: 10; }
+.z-20 { z-index: 20; }
+.z-30 { z-index: 30; }
+.z-40 { z-index: 40; }
+.z-50 { z-index: 50; }
+.z-overlay { z-index: 1000; }
+
+/* Animation Utilities */
+.transition { transition: all 0.3s ease; }
+.transition-opacity { transition: opacity 0.3s ease; }
+.scale-hover:hover { transform: scale(1.05); }
+.duration-300 { animation-duration: 0.3s; }
+.fill-forwards { animation-fill-mode: forwards; }

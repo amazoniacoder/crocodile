@@ -1,0 +1,43 @@
+/* Responsive Breakpoints System */
+
+/* Breakpoint Variables */
+:root {
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
+
+/* Mobile First Responsive Utilities */
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+  .mobile-hidden { display: none !important; }
+  .mobile-block { display: block !important; }
+  .mobile-flex { display: flex !important; }
+  
+  /* Common mobile patterns */
+  .mobile-full-width { width: 100% !important; }
+  .mobile-stack { flex-direction: column !important; }
+  .mobile-center { text-align: center !important; }
+  
+  /* Header styles moved to components/header/header.css */
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tablet-hidden { display: none !important; }
+  .tablet-block { display: block !important; }
+  .tablet-flex { display: flex !important; }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+  .desktop-hidden { display: none !important; }
+  .desktop-block { display: block !important; }
+  .desktop-flex { display: flex !important; }
+  
+  /* Header styles moved to components/header/header.css */
+}
+

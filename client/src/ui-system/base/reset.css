@@ -1,0 +1,126 @@
+/* CSS Reset & Normalize */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  scrollbar-width: none;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  margin-right: 0 !important;
+}
+
+/* Hide scrollbar webkit */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Typography Reset */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+  background-color: transparent;
+}
+
+/* Images */
+img {
+  height: auto;
+  border-style: none;
+}
+
+/* Form Elements */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  appearance: button;
+  cursor: pointer;
+}
+
+/* Global cursor pointer for interactive elements */
+a,
+button,
+[role="button"],
+[tabindex="0"],
+label,
+select,
+input[type="checkbox"],
+input[type="radio"],
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+.clickable {
+  cursor: pointer;
+}
+
+/* Lists */
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Loading Placeholder */
+.content-loading-placeholder {
+  min-height: 300px;
+}
+
+
+/* Enforce cursor pointer for all interactive elements */
+button:not(:disabled),
+a:not([disabled]),
+[role="button"]:not([disabled]),
+[tabindex="0"]:not([disabled]),
+label:not([disabled]),
+select:not(:disabled),
+input[type="checkbox"]:not(:disabled),
+input[type="radio"]:not(:disabled),
+input[type="submit"]:not(:disabled),
+input[type="button"]:not(:disabled),
+input[type="reset"]:not(:disabled),
+.clickable:not([disabled]),
+.admin-button:not(:disabled),
+.sidebar-tab__button:not(:disabled),
+.footer-editor__tab-button:not(:disabled) {
+  cursor: pointer !important;
+}

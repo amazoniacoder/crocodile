@@ -1,0 +1,7 @@
+/**
+ * Feedback Components
+ * CSS entry point
+ */
+
+@import './feedback.css';
+@import './loading.css';

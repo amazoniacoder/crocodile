@@ -1,0 +1,66 @@
+/**
+ * BlogPro Design System - Spacing Tokens
+ * Consistent spacing scale for layouts and components
+ */
+
+:root {
+  /* Base Spacing Scale (4px base unit) */
+  --space-0: 0;
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+
+  /* Rounded Border Radius - More organic feel */
+  --radius-none: 0;
+  --radius-sm: 0.25rem;    /* 4px */
+  --radius-md: 0.75rem;    /* 12px - More rounded */
+  --radius-lg: 1rem;       /* 16px - More rounded */
+  --radius-xl: 1.5rem;     /* 24px - More rounded */
+  --radius-full: 9999px;
+
+  /* Compact Component Spacing */
+  --button-padding-x: var(--space-3);
+  --button-padding-y: var(--space-2);
+  --button-padding: var(--button-padding-y) var(--button-padding-x);
+
+  --input-padding-x: var(--space-3);
+  --input-padding-y: var(--space-2);
+  --input-padding: var(--input-padding-y) var(--input-padding-x);
+
+  --card-padding: var(--space-6);
+  --modal-padding: var(--space-8);
+
+  /* Layout Spacing */
+  --container-padding: var(--space-4);
+  --section-spacing: var(--space-16);
+  --component-gap: var(--space-4);
+
+  /* Mobile-optimized spacing */
+  --mobile-padding: var(--space-3);
+  --mobile-gap: var(--space-2);
+  --mobile-section: var(--space-8);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  :root {
+    --container-padding: var(--mobile-padding);
+    --component-gap: var(--mobile-gap);
+    --section-spacing: var(--mobile-section);
+    
+    /* Slightly larger touch targets on mobile */
+    --button-padding: var(--space-3) var(--space-4);
+    --input-padding: var(--space-3) var(--space-3);
+  }
+  
+
+}

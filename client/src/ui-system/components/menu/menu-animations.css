@@ -1,0 +1,79 @@
+/**
+ * BlogPro Menu Animations
+ * Hover effects and visual indicators for multi-level menus
+ */
+
+/* Underline animations for menu items - header__nav-link styling handled by header.css */
+
+/* Visual indicator for nested dropdowns */
+.menu-dropdown-nested > .menu-dropdown-link {
+  position: relative;
+}
+
+.menu-dropdown-nested > .menu-dropdown-link::after {
+  content: '';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { 
+    opacity: 1; 
+  }
+  51%, 100% { 
+    opacity: 0.3; 
+  }
+}
+
+/* Dropdown fade-in animations - removed to prevent positioning conflicts */
+
+/* Subpanel slide-in animations */
+.menu-dropdown-subpanel {
+  animation: slideInRight 0.2s ease;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hover transitions for all interactive elements */
+.menu-dropdown-link,
+.menu-dropdown-sublink {
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+/* Desktop only hover transforms */
+@media (min-width: 769px) {
+  .menu-dropdown-link:hover,
+  .menu-dropdown-sublink:hover {
+    transform: translateX(2px);
+  }
+}
+
+/* Mobile arrow animations */
+.menu-mobile-arrow,
+.menu-dropdown-arrow {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Focus states for accessibility */
+.menu-dropdown-link:focus,
+.menu-dropdown-sublink:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  background-color: var(--bg-hover);
+}

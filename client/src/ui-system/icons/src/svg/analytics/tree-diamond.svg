@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Larger Diamond outline -->
+  <path d="M12 1 L22 12 L12 23 L2 12 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  
+  <!-- Tree trunk - two lines wider apart -->
+  <line x1="11" y1="12" x2="11" y2="18" stroke="currentColor" stroke-width="1.5"/>
+  <line x1="13" y1="12" x2="13" y2="18" stroke="currentColor" stroke-width="1.5"/>
+  
+  <!-- Tree crown - cloud outline -->
+  <path d="M8 10 Q8 8 10 8 Q11 6 12 6 Q13 6 14 8 Q16 8 16 10 Q16 12 14 12 Q13 12 12 12 Q11 12 10 12 Q8 12 8 10 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+</svg>

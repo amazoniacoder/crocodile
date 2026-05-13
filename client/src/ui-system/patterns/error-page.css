@@ -1,0 +1,62 @@
+/* Error Page Pattern Styles */
+.error-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: var(--space-8) var(--space-4);
+  gap: var(--space-8);
+}
+
+.error-page__content {
+  text-align: center;
+  max-width: 500px;
+}
+
+.error-page__code {
+  font-size: 6rem;
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+}
+
+.error-page__title {
+  margin-bottom: var(--space-4);
+  color: var(--text-primary);
+}
+
+.error-page__description {
+  margin-bottom: var(--space-6);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+.error-page__actions {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.error-page__illustration {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .error-page {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .error-page__code {
+    font-size: 4rem;
+  }
+  
+  .error-page__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+}

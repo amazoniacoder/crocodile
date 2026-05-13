@@ -1,0 +1,58 @@
+/* Grid System - BEM Style */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+/* Column Count Modifiers */
+.grid--cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid--cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid--cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid--cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.grid--cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.grid--cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+
+/* Gap Modifiers */
+.grid--gap-sm { gap: 0.5rem; }
+.grid--gap-md { gap: 1rem; }
+.grid--gap-lg { gap: 2rem; }
+.grid--gap-xl { gap: 3rem; }
+
+/* Alignment Modifiers */
+.grid--items-start { align-items: start; }
+.grid--items-center { align-items: center; }
+.grid--items-end { align-items: end; }
+.grid--items-stretch { align-items: stretch; }
+
+/* Justify Content */
+.grid--justify-start { justify-content: start; }
+.grid--justify-center { justify-content: center; }
+.grid--justify-end { justify-content: end; }
+.grid--justify-between { justify-content: space-between; }
+
+/* Flexbox Utilities - .flex moved to utilities/display.css */
+.flex--col {
+  flex-direction: column;
+}
+
+.flex--wrap {
+  flex-wrap: wrap;
+}
+
+.flex--items-center {
+  align-items: center;
+}
+
+.flex--justify-center {
+  justify-content: center;
+}
+
+.flex--justify-between {
+  justify-content: space-between;
+}
+
+.flex--gap-sm { gap: 0.5rem; }
+.flex--gap-md { gap: 1rem; }
+.flex--gap-lg { gap: 2rem; }

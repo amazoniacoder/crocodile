@@ -1,0 +1,91 @@
+/**
+ * BlogPro Light Theme
+ * Professional light color scheme with subtle contrasts
+ */
+
+:root {
+  /* Light Theme Color Tokens */
+  --theme: 'light';
+  
+  /* Primary Text Colors */
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-muted: #6b7280;
+  --text-inverse: #ffffff;
+  --text-accent: #2563eb;
+  
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-alt: #f1f5f9;
+  --bg-hover: #e2e8f0;
+  --bg-active: #cbd5e1;
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+  
+  /* Border Colors */
+  --border-color: #e2e8f0;
+  --border-hover: #cbd5e1;
+  --border-focus: #3b82f6;
+  --border-error: #ef4444;
+  --border-success: #10b981;
+  
+  /* Component Backgrounds */
+  --card-bg: #ffffff;
+  --footer-bg: #f8fafc;
+  --sidebar-bg: #ffffff;
+  --modal-bg: #ffffff;
+  
+  /* Header text color */
+  --header-text: #1e293b;
+  
+  /* Input Colors */
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
+  --input-focus: #3b82f6;
+  --input-placeholder: #9ca3af;
+  
+  /* Button Colors */
+  --button-primary-bg: #1e293b;
+  --button-primary-hover: #0f172a;
+  --button-primary-text: #ffffff;
+  --button-secondary-bg: transparent;
+  --button-secondary-hover: #f1f5f9;
+  --button-secondary-text: #475569;
+  --button-secondary-border: #cbd5e1;
+  
+  /* Status Colors */
+  --success-bg: #dcfce7;
+  --success-text: #166534;
+  --success-border: #bbf7d0;
+  --error-bg: #fef2f2;
+  --error-text: #dc2626;
+  --error-border: #fecaca;
+  --warning-bg: #fefce8;
+  --warning-text: #ca8a04;
+  --warning-border: #fef08a;
+  --info-bg: #eff6ff;
+  --info-text: #2563eb;
+  --info-border: #bfdbfe;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --shadow-outline: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  
+  /* Navigation */
+  --nav-bg: #ffffff;
+  --nav-text: #475569;
+  --nav-text-hover: #1e293b;
+  --nav-text-active: #2563eb;
+  --nav-border: #e2e8f0;
+  
+  /* Code & Syntax */
+  --code-bg: #f1f5f9;
+  --code-text: #1e293b;
+  --code-border: #cbd5e1;
+  --pre-bg: #0f172a;
+  --pre-text: #e2e8f0;
+}

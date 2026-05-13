@@ -1,0 +1,243 @@
+/* Error Boundary Styles */
+.error-boundary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--color-error-bg, #fef2f2);
+  border: 1px solid var(--color-error-border, #fecaca);
+  color: var(--color-error-text, #dc2626);
+}
+
+.error-boundary__content {
+  text-align: center;
+  max-width: 500px;
+}
+
+.error-boundary__icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.error-boundary__title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-error-title, #991b1b);
+}
+
+.error-boundary__message {
+  margin: 0 0 1rem 0;
+  color: var(--color-error-message, #7f1d1d);
+  line-height: 1.5;
+}
+
+.error-boundary__error-id {
+  margin: 0.5rem 0 1rem 0;
+  font-size: 0.875rem;
+  color: var(--color-error-muted, #a3a3a3);
+}
+
+.error-boundary__error-id code {
+  background-color: var(--color-error-code-bg, #f3f4f6);
+  padding: 0.125rem 0.25rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+}
+
+.error-boundary__actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.error-boundary__details {
+  margin: 1rem 0;
+  text-align: left;
+}
+
+.error-boundary__details summary {
+  cursor: pointer;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--color-error-title, #991b1b);
+}
+
+.error-boundary__stack {
+  background-color: var(--color-error-code-bg, #f9fafb);
+  border: 1px solid var(--color-error-border, #e5e7eb);
+  border-radius: 4px;
+  padding: 0.75rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Page Level Error Boundary */
+.error-boundary--page {
+  min-height: 400px;
+  margin: 2rem;
+  padding: 3rem;
+}
+
+.error-boundary--page .error-boundary__icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.error-boundary--page .error-boundary__title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.error-boundary--page .error-boundary__message {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+/* Section Level Error Boundary */
+.error-boundary--section {
+  min-height: 200px;
+  margin: 1rem 0;
+  padding: 2rem;
+}
+
+.error-boundary--section .error-boundary__icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.error-boundary--section .error-boundary__title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Component Level Error Boundary */
+.error-boundary--component {
+  min-height: auto;
+  padding: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.error-boundary--component .error-boundary__content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.error-boundary--component .error-boundary__icon {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.error-boundary--component .error-boundary__message {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.error-boundary__retry {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.error-boundary__retry:hover {
+  background-color: var(--color-error-hover, #fee2e2);
+}
+
+/* Dark Theme Support */
+@media (prefers-color-scheme: dark) {
+  .error-boundary {
+    background-color: var(--color-error-bg-dark, #451a03);
+    border-color: var(--color-error-border-dark, #92400e);
+    color: var(--color-error-text-dark, #fbbf24);
+  }
+
+  .error-boundary__title {
+    color: var(--color-error-title-dark, #f59e0b);
+  }
+
+  .error-boundary__message {
+    color: var(--color-error-message-dark, #d97706);
+  }
+
+  .error-boundary__error-id {
+    color: var(--color-error-muted-dark, #6b7280);
+  }
+
+  .error-boundary__error-id code {
+    background-color: var(--color-error-code-bg-dark, #374151);
+    color: var(--color-error-code-text-dark, #f3f4f6);
+  }
+
+  .error-boundary__stack {
+    background-color: var(--color-error-code-bg-dark, #1f2937);
+    border-color: var(--color-error-border-dark, #4b5563);
+    color: var(--color-error-code-text-dark, #e5e7eb);
+  }
+
+  .error-boundary__retry:hover {
+    background-color: var(--color-error-hover-dark, #92400e);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .error-boundary--page {
+    margin: 1rem;
+    padding: 2rem 1rem;
+  }
+
+  .error-boundary--page .error-boundary__title {
+    font-size: 1.5rem;
+  }
+
+  .error-boundary--page .error-boundary__message {
+    font-size: 1rem;
+  }
+
+  .error-boundary--section {
+    padding: 1.5rem 1rem;
+  }
+
+  .error-boundary__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .error-boundary__actions .button {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Animation for Error Boundary appearance */
+.error-boundary {
+  animation: errorBoundaryFadeIn 0.3s ease-out;
+}
+
+@keyframes errorBoundaryFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

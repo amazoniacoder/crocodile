@@ -1,0 +1,353 @@
+/**
+ * Social Media Patterns - Shared styles for Telegram & YouTube
+ * Common components and layouts for social media integrations
+ */
+
+/* --- Offline Banner --- */
+
+.offline-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xs) var(--space-lg);
+  width: 100%;
+  box-sizing: border-box;
+  background: color-mix(in oklab, var(--color-warning, #f59e0b) 12%, transparent);
+  border-bottom: 1px solid color-mix(in oklab, var(--color-warning, #f59e0b) 30%, transparent);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.offline-banner--info {
+  background: color-mix(in oklab, var(--color-primary) 8%, transparent);
+  border-bottom-color: color-mix(in oklab, var(--color-primary) 20%, transparent);
+}
+
+/* --- Shared Components --- */
+
+/* Social Aggregator */
+.social-aggregator__count {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  margin: 0 0 var(--space-md);
+}
+
+/* Blocked / No network overlay */
+.social-blocked-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding: var(--space-lg);
+  background: rgba(var(--color-primary-rgb), 0.08);
+  backdrop-filter: blur(2px);
+}
+
+.social-blocked-overlay__card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: var(--space-xl) 3rem;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  animation: blocked-card-in 0.3s ease;
+}
+
+@keyframes blocked-card-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.social-blocked-overlay__icon {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: var(--space-md);
+}
+
+.social-blocked-overlay__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-sm);
+}
+
+.social-blocked-overlay__text {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 var(--space-lg);
+}
+
+.social-blocked-overlay__retry {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-xl);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-medium);
+  color: #fff;
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.social-blocked-overlay__retry:hover {
+  background: var(--color-primary-dark);
+}
+
+@media (max-width: 768px) {
+  .social-blocked-overlay__card {
+    padding: var(--space-xl) var(--space-lg);
+  }
+}
+
+/* No-VPN bar (above feed) */
+.social-novpn-bar {
+  position: relative;
+  bottom: 3px;
+  display: flex;
+  justify-content: center;
+  padding: var(--space-sm) var(--space-lg) 0;
+}
+
+.social-novpn-bar__inner {
+  width: 780px;
+  max-width: 780px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-xs);
+  position: relative;
+}
+
+.social-novpn-bar__btn {
+  background: rgba(var(--color-primary-rgb), 0.25);
+  flex-shrink: 0;
+}
+
+.social-novpn-bar__btn:hover:not(:disabled) {
+  background: #1a8fc7 !important;
+}
+
+.social-novpn-bar__btn--yt:hover,
+.social-novpn-bar__btn--yt-active {
+  background: #FF0000 !important;
+}
+
+.social-novpn-bar__info {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xs) var(--space-md);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.social-novpn-bar__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-bold);
+  color: #fff;
+  background: #2CA5E0;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.social-novpn-bar__badge--yt {
+  background: #FF0000;
+}
+
+@media (max-width: 768px) {
+  .social-novpn-bar {
+    padding: var(--space-sm) var(--space-md) 0;
+  }
+
+  .social-novpn-bar__inner {
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-between;
+  }
+
+  .social-novpn-bar__info {
+    position: static;
+    transform: none;
+    flex: 1;
+    justify-content: center;
+    font-size: var(--font-size-xs);
+    white-space: normal;
+    text-align: center;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 0 var(--space-xs);
+  }
+}
+
+/* --- Subscription Manager --- */
+
+.subscription-manager__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+}
+
+.subscription-manager__toggle-all {
+  padding: 2px var(--space-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-medium);
+  color: var(--color-primary);
+  background: transparent;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.subscription-manager__toggle-all:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.subscription-manager__tabs {
+  display: flex;
+  gap: var(--space-xs);
+  padding: var(--space-xs);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+}
+
+.subscription-manager__tab {
+  flex: 1;
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.subscription-manager__tab:hover {
+  color: var(--text-primary);
+}
+
+.subscription-manager__tab--active {
+  color: var(--text-primary);
+  background: var(--card-bg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- SubscriptionGate --- */
+
+.subscription-gate {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: color-mix(in oklab, var(--color-primary) 5%, transparent);
+  border-top: 1px dashed var(--border-color);
+  flex-wrap: wrap;
+}
+
+.subscription-gate__lock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.subscription-gate__text {
+  flex: 1;
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  min-width: 0;
+}
+
+.subscription-gate__btn {
+  flex-shrink: 0;
+  padding: 3px var(--space-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-medium);
+  color: var(--color-primary);
+  background: transparent;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.subscription-gate__btn:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* --- ZoneL Components --- */
+
+.zone-l__page-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.zone-l__page-toggle-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.zone-l__page-toggle-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-primary);
+}
+
+.zone-l__collect-telegram {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.zone-l__collect-result {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-medium);
+}
+
+.zone-l__collect-result--ok {
+  color: var(--color-success, #22c55e);
+}
+
+.zone-l__collect-result--error {
+  color: var(--color-error);
+}

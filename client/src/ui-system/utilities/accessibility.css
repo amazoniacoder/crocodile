@@ -1,0 +1,92 @@
+/**
+ * Accessibility Utility Styles
+ * WCAG 2.1 AA Compliance
+ */
+
+/* Screen Reader Only Content */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Skip Links */
+.skip-link {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  font-size: var(--text-base);
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-primary-600);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  z-index: var(--z-toast);
+  transition: var(--transition-all);
+}
+
+.skip-link:focus {
+  left: var(--space-4) !important;
+  top: var(--space-4) !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* Focus Indicators */
+.focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .button,
+  .input,
+  .card {
+    border-width: 2px;
+  }
+  
+  .focus-visible {
+    outline-width: 3px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Live Regions */
+.live-region {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Focus Trap */
+.focus-trap {
+  position: relative;
+}
+
+.focus-trap:focus-within {
+  outline: none;
+}

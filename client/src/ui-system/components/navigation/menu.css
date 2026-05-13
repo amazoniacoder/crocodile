@@ -1,0 +1,41 @@
+/**
+ * Menu System Components
+ * Dropdown menus and navigation items
+ */
+
+/* Menu styles moved to dedicated menu component */
+
+/* Mobile menu styles */
+@media (max-width: 768px) {
+  .menu-dropdown {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    min-width: auto;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    transform: translateY(-100%);
+  }
+  
+  .menu-dropdown--open {
+    transform: translateY(0);
+  }
+  
+  .menu-dropdown-subpanel {
+    position: static;
+    box-shadow: none;
+    border: none;
+    border-top: 1px solid var(--border-color);
+    border-radius: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: none;
+  }
+  
+  .menu-dropdown-subpanel--open {
+    display: block;
+  }
+}

@@ -1,0 +1,144 @@
+/**
+ * BlogPro Main Styles - UI System Only
+ * Clean, professional, conflict-free implementation
+ */
+
+/* UI System - Complete Professional Interface */
+@import './index.css';
+@import './patterns/news-aggregator.css';
+@import './patterns/news-detail.css';
+@import './patterns/about.css';
+@import './patterns/donate.css';
+@import './patterns/sources.css';
+@import './patterns/weather.css';
+@import './patterns/geography-table.css';
+@import './patterns/top-cities.css';
+@import './patterns/contact-panel.css';
+@import './patterns/telegram-new.css';
+
+/* Variables are imported from ./base/variables.css via ./index.css */
+
+/* Global Reset and Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  padding-top: 64px; /* Prevent content hiding under fixed header */
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  line-height: var(--leading-normal, 1.5);
+  color: var(--text-primary, #1f2937);
+  background: var(--bg-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Prevent horizontal scroll */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure all containers respect viewport width */
+* {
+  max-width: 100%;
+}
+
+/* Fix for images and media */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Typography Styles */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Link Styles - CRITICAL FIX */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+  opacity: 0.8;
+}
+
+/* Remove default margins that can cause overflow */
+ul, ol, dl, blockquote, pre {
+  margin-top: 0;
+}
+
+/* Ensure buttons and inputs don't overflow */
+button, input, select, textarea {
+  max-width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* Specific cursor styles for form elements */
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="search"], 
+textarea, 
+select {
+  cursor: text;
+}
+
+input[type="checkbox"], 
+input[type="radio"] {
+  cursor: pointer;
+}
+
+/* Interactive elements cursor */
+button, 
+[role="button"], 
+.clickable,
+[onclick] {
+  cursor: pointer !important;
+}
+
+/* Container Utility */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Focus States */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  box-shadow: var(--shadow-outline);
+  border-radius: var(--radius-sm, 0.125rem);
+}

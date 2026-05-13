@@ -1,0 +1,88 @@
+/**
+ * Header Icon Base System
+ * Standardized styling for all header icons
+ */
+
+/* Base icon styling - applies to all header icons */
+.header-icon-base,
+.header__icon-link,
+.accessibility-toggle,
+.color-picker__toggle,
+.theme-toggle,
+.lang-switcher__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.header-icon-base:hover,
+.header__icon-link:hover,
+.accessibility-toggle:hover,
+.color-picker__toggle:hover,
+.theme-toggle:hover,
+.lang-switcher__trigger:hover {
+  background-color: var(--bg-hover);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+/* Slide toggle styles moved to header.css to avoid duplication */
+
+/* Icon sizing for consistency */
+.header-icon-base svg,
+.header__icon-link svg,
+.accessibility-toggle svg,
+.color-picker__toggle svg,
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Language Switcher */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.lang-switcher__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Special styling for logout button */
+.header__icon-link--logout {
+  color: var(--error-600);
+}
+
+.header__icon-link--logout:hover {
+  background-color: var(--error-50);
+  color: var(--error-700);
+}

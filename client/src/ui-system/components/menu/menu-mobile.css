@@ -1,0 +1,232 @@
+/**
+ * BlogPro Menu Mobile Styles
+ * Responsive behavior for multi-level menus on mobile devices
+ */
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  /* Mobile menu item adjustments */
+  .menu-item {
+    width: 100%;
+    display: block;
+  }
+
+  .menu-item-wrapper {
+    justify-content: space-between;
+    padding: 0.5rem 0;
+  }
+
+  /* Mobile dropdown positioning - override desktop styles */
+  .menu-item .menu-dropdown,
+  .menu-dropdown {
+    position: static !important;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: visible;
+    transform: none;
+    /* transition handled by .transition-opacity utility class */
+    top: auto;
+    left: auto;
+    min-width: auto;
+  }
+
+  .menu-item--open .menu-dropdown,
+  .menu-dropdown--open {
+    max-height: 500px;
+    opacity: 1;
+  }
+
+  /* Mobile dropdown items */
+  .menu-dropdown-item {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .menu-dropdown-item:last-child {
+    border-bottom: none;
+  }
+
+  /* Level 0: Main Menu Items - header__nav-link styling handled by header.css */
+  .menu-item > .menu-dropdown-link--expandable {
+    padding: 12px 16px !important;
+    font-weight: 500;
+    font-size: 0.9rem;
+    min-height: 44px;
+    max-height: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  .menu-item > .menu-dropdown-link--expandable .menu-dropdown-link-text {
+    padding: 0 !important;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  
+  /* Level 1: First Child Menu Items */
+  .menu-dropdown-link,
+  .menu-dropdown-link-text {
+    padding: 12px 32px !important;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 0;
+    min-height: 44px;
+    height: auto;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Expandable menu container */
+  .menu-dropdown-link--expandable {
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 44px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .menu-dropdown-link--expandable .menu-dropdown-link-text {
+    padding: 12px 32px !important;
+    flex: 1;
+    height: 44px;
+  }
+
+  /* Mobile nested dropdowns - children */
+  .menu-dropdown-children {
+    padding-left: 8px;
+    margin-left: 0;
+    margin-top: 0;
+    border-left: 1px solid var(--border-color);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-5px);
+    /* transition handled by .transition-opacity utility class */
+  }
+  
+  .menu-dropdown-children--open {
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
+    background-color: var(--bg-hover);
+  }
+  
+  /* Level 2: Second Child Menu Items */
+  .menu-dropdown-children .menu-dropdown-link {
+    padding: 12px 48px !important;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  /* Remove underlines from mobile menu links - header__nav-link styling handled by header.css */
+  .menu-dropdown-link::after,
+  .menu-dropdown-link-text::after {
+    display: none !important;
+  }
+  
+  /* Underline for active dropdown links - positioned on full-width container */
+  .menu-item > .menu-dropdown-link--active::after {
+    display: block !important;
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 16px;
+    height: 4px;
+    background-color: var(--color-primary);
+  }
+  
+  /* Ensure active dropdown containers have proper positioning for underline */
+  .menu-item > .menu-dropdown-link--active {
+    position: relative;
+  }
+
+  .menu-dropdown-subitem {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .menu-dropdown-subitem:last-child {
+    border-bottom: none;
+  }
+
+  .menu-dropdown-sublink {
+    padding: 1rem 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  /* Mobile arrows visibility */
+  .menu-mobile-arrow,
+  .menu-dropdown-arrow {
+    display: block;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+
+  /* Ensure arrow click area is large enough */
+  .menu-mobile-arrow {
+    padding: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+  }
+
+
+
+  /* Remove hover transforms on mobile */
+  .menu-dropdown-link:hover,
+  .menu-dropdown-sublink:hover {
+    transform: none;
+  }
+
+  /* Mobile visual indicators */
+  .menu-dropdown-nested > .menu-dropdown-link::after {
+    display: none;
+  }
+
+  /* Ensure proper spacing in mobile menu */
+  .header__nav--open .menu-item {
+    margin-bottom: 0.5rem;
+  }
+
+  .header__nav--open .menu-item:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Mobile slide-down animation */
+@keyframes slideDownMobile {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .menu-dropdown {
+    min-width: 200px;
+  }
+
+  .menu-dropdown-subpanel {
+    min-width: 180px;
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "name": "@blogpro/ui-system",
+  "version": "1.0.0",
+  "description": "BlogPro Design System - Professional UI Components with BEM Architecture",
+  "main": "index.css",
+  "files": [
+    "base/",
+    "layout/",
+    "utilities/",
+    "components/",
+    "admin/",
+    "patterns/",
+    "icons/",
+    "themes/",
+    "tokens/",
+    "index.css",
+    "main.css"
+  ],
+  "exports": {
+    ".": "./index.css",
+    "./main": "./main.css",
+    "./base": "./base/index.css",
+    "./layout": "./layout/index.css",
+    "./utilities": "./utilities/index.css",
+    "./components": "./components/index.css",
+    "./admin": "./admin/index.css",
+    "./patterns": "./patterns/index.css",
+    "./icons": "./icons/index.css",
+    "./themes": "./themes/index.css",
+    "./tokens": "./tokens/index.css",
+    "./button": "./components/button/index.css",
+    "./form": "./components/form/index.css",
+    "./card": "./components/card/index.css",
+    "./modal": "./components/modal/index.css",
+    "./search": "./components/search/index.css",
+    "./navigation": "./components/navigation/index.css",
+    "./header": "./components/header/index.css",
+    "./footer": "./components/footer/index.css"
+  },
+  "keywords": [
+    "design-system",
+    "css",
+    "bem",
+    "ui-kit",
+    "blogpro",
+    "icons",
+    "components",
+    "w3c-compliant",
+    "professional",
+    "migration"
+  ],
+  "author": "BlogPro Team",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=17.0.0"
+  }
+}

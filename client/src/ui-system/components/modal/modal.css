@@ -1,0 +1,162 @@
+/* 
+ * Modal Component - BEM Style
+ * 
+ * Block:     .modal
+ * Elements:  .modal__overlay, .modal__container, .modal__header, .modal__title, .modal__close, .modal__body, .modal__footer
+ * Modifiers: .modal--large, .modal--small
+ */
+
+/* Modal Backdrop */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 2000;
+  overflow-y: auto;
+}
+
+/* Modal Container */
+.bp-modal {
+  position: relative;
+  background-color: var(--bg-primary);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 500px;
+  max-height: calc(100vh - 2rem);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 2001;
+}
+
+/* Modal Sizes */
+.modal--sm { max-width: 400px; }
+.modal--md { max-width: 500px; }
+.modal--lg { max-width: 700px; }
+.modal--xl { max-width: 900px; }
+.modal--full { max-width: 95vw; max-height: 95vh; }
+
+/* Telegram-виджет: минимальные отступы в теле модалки */
+.modal--full .modal__body {
+  padding: var(--space-md);
+}
+
+.modal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  /* animation duration handled by .duration-300 utility class */
+}
+
+/* Image Modal Specific Styles */
+.image-modal {
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.image-modal .modal__body {
+  padding: 0;
+}
+
+.image-modal__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-modal__image {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.modal__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.modal__close {
+  background: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  padding: 0.5rem;
+  margin: -0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.modal__close:hover {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.modal__body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}

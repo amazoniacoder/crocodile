@@ -1,0 +1,16 @@
+/* 
+ * Grid Component - BEM Style
+ * 
+ * Block:     .grid
+ * Modifiers: .grid--cols-{1-12}, .grid--gap-{sm,md,lg}, .grid--items-{start,center,end}
+ */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+/* Column count modifiers - removed duplicates, using layout/grid.css */
+/* Gap modifiers - removed duplicates, using layout/grid.css */
+/* Alignment modifiers - removed duplicates, using layout/grid.css */

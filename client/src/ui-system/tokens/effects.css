@@ -1,0 +1,61 @@
+/**
+ * BlogPro Design System - Effects Tokens
+ * Shadows, transitions, and visual effects
+ */
+
+:root {
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --shadow-outline: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  --shadow-none: none;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
+  --transition-slow: 0.4s ease;
+
+  /* Transition Properties */
+  --transition-colors: color, background-color, border-color;
+  --transition-transform: transform;
+  --transition-opacity: opacity;
+  --transition-all: all;
+
+  /* Component-specific Effects */
+  --button-shadow: var(--shadow-sm);
+  --button-shadow-hover: var(--shadow-md);
+  --button-transition: var(--transition-colors) var(--transition-base), 
+                          var(--transition-transform) var(--transition-base),
+                          box-shadow var(--transition-base);
+
+  --card-shadow: var(--shadow-md);
+  --card-shadow-hover: var(--shadow-lg);
+
+  --modal-shadow: var(--shadow-xl);
+  --input-shadow-focus: var(--shadow-outline);
+
+  /* Subtle Gradients */
+  --gradient-light: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+  --gradient-subtle: linear-gradient(135deg, #fafafa 0%, #f4f4f5 100%);
+  --gradient-primary: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+
+  /* Z-index Scale */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-toast: 1080;
+}
+
+/* Dark theme gradients */
+.dark {
+  --gradient-light: linear-gradient(135deg, #0c0c0d 0%, #111113 100%);
+  --gradient-subtle: linear-gradient(135deg, #111113 0%, #18181b 100%);
+  --gradient-primary: linear-gradient(135deg, #fafafa 0%, #e4e4e7 100%);
+}

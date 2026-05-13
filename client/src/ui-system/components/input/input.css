@@ -1,0 +1,59 @@
+/* 
+ * Field Component - BEM Style
+ * 
+ * Block:     .field
+ * Elements:  .field__label, .field__wrapper, .field__error
+ * Modifiers: .field--error, .field--success, .field--disabled
+ */
+
+/* Base field */
+.field {
+  display: flex;
+  height: 36px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  transition: border-color 0.2s ease;
+}
+
+.field:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.1);
+}
+
+.field::placeholder {
+  color: var(--text-secondary);
+}
+
+.field:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: var(--bg-secondary);
+}
+
+/* Field elements */
+.field__label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.field__error {
+  font-size: 0.7rem;
+  color: var(--color-error);
+  margin-top: 0.125rem;
+}
+
+/* Field modifiers */
+.field--error {
+  border-color: var(--color-error);
+}
+
+.field--success {
+  border-color: var(--color-success);
+}

@@ -1,0 +1,239 @@
+/**
+ * Modal and Dialog Components
+ * Confirmation dialogs, delete modals, etc.
+ */
+
+.confirm-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-4);
+}
+
+.confirm-dialog {
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  max-width: 400px;
+  width: 100%;
+  animation: modal-in 0.2s ease;
+}
+
+.confirm-dialog-title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  margin: 0 0 var(--space-3);
+  color: var(--text-primary);
+}
+
+.confirm-dialog-message {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  margin: 0 0 var(--space-6);
+  color: var(--text-secondary);
+}
+
+.confirm-dialog-actions {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: flex-end;
+}
+
+.confirm-dialog-button {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: var(--transition-base);
+  border: 1px solid transparent;
+}
+
+.confirm-dialog-cancel {
+  background: var(--bg-alt);
+  color: var(--text-secondary);
+  border-color: var(--border-color);
+}
+
+.confirm-dialog-cancel:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.confirm-dialog-confirm {
+  background: var(--primary-600);
+  color: white;
+  border-color: var(--primary-600);
+}
+
+.confirm-dialog-confirm:hover {
+  background: var(--primary-700);
+}
+
+.confirm-dialog-confirm--danger {
+  background: var(--error-600);
+  border-color: var(--error-600);
+}
+
+.confirm-dialog-confirm--danger:hover {
+  background: var(--error-700);
+}
+
+/* Delete Modal */
+.delete-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-4);
+}
+
+.delete-modal {
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  max-width: 500px;
+  width: 100%;
+  animation: modal-in 0.2s ease;
+}
+
+.delete-modal__header {
+  padding: var(--space-6) var(--space-6) 0;
+}
+
+.delete-modal__title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  margin: 0 0 var(--space-4);
+  color: var(--error-600);
+}
+
+.delete-modal__content {
+  padding: 0 var(--space-6) var(--space-6);
+}
+
+.delete-dialog__warning {
+  padding: var(--space-4);
+  background: var(--error-50);
+  border: 1px solid var(--error-200);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+}
+
+.delete-dialog__message {
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-3);
+  line-height: var(--leading-relaxed);
+}
+
+.delete-dialog__details {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.delete-dialog__list {
+  list-style: none;
+  margin: var(--space-3) 0 0;
+  padding: 0;
+}
+
+.delete-dialog__list li {
+  padding: var(--space-1) 0;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.delete-dialog__final-warning {
+  padding: var(--space-4);
+  background: var(--error-100);
+  border: 2px solid var(--error-300);
+  border-radius: var(--radius-md);
+  margin: var(--space-4) 0;
+  font-weight: var(--font-medium);
+  color: var(--error-800);
+  text-align: center;
+}
+
+.delete-modal__actions {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: flex-end;
+}
+
+.delete-modal__button {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: var(--transition-base);
+  border: 1px solid transparent;
+  min-width: 100px;
+}
+
+.delete-modal__button--secondary {
+  background: var(--bg-alt);
+  color: var(--text-secondary);
+  border-color: var(--border-color);
+}
+
+.delete-modal__button--secondary:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.delete-modal__button--danger {
+  background: var(--error-600);
+  color: white;
+  border-color: var(--error-600);
+}
+
+.delete-modal__button--danger:hover {
+  background: var(--error-700);
+}
+
+/* Modal Animation */
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .confirm-dialog,
+  .delete-modal {
+    margin: var(--space-4);
+    max-width: none;
+  }
+  
+  .confirm-dialog-actions,
+  .delete-modal__actions {
+    flex-direction: column;
+  }
+  
+  .confirm-dialog-button,
+  .delete-modal__button {
+    width: 100%;
+  }
+}

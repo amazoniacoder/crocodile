@@ -1,0 +1,94 @@
+/* Accessibility Menu Block - BEM Style */
+
+/* Block */
+.accessibility-menu {
+  position: relative;
+}
+
+/* Elements */
+.accessibility-menu__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  color: var(--text-secondary, #4b5563);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: none;
+}
+
+.accessibility-menu__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md, 0.375rem);
+  box-shadow: var(--shadow-lg);
+  padding: 12px;
+  margin-top: 4px;
+  min-width: 200px;
+}
+
+.accessibility-menu__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.accessibility-menu__title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary, #1f2937);
+}
+
+.accessibility-menu__value {
+  font-size: 0.875rem;
+  color: var(--text-secondary, #4b5563);
+  font-weight: 500;
+}
+
+.accessibility-menu__buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.accessibility-menu__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 40px;
+  border-radius: var(--radius-md, 0.375rem);
+  background-color: var(--bg-alt, #f3f4f6);
+  border: none;
+  color: var(--text-secondary, #4b5563);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+}
+
+/* Modifiers */
+.accessibility-menu__button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* States */
+.accessibility-menu__toggle:hover {
+  background-color: var(--bg-hover, #f3f4f6);
+  color: var(--text-primary, #1f2937);
+}
+
+.accessibility-menu__button:hover:not(.accessibility-menu__button--disabled) {
+  background-color: var(--bg-hover, #f3f4f6);
+  color: var(--text-primary, #1f2937);
+}
+

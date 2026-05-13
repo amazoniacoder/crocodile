@@ -1,0 +1,7 @@
+/* BlogPro UI System - Base Styles */
+
+/* Import base foundation styles */
+@import './variables.css';
+@import './reset.css';
+@import './typography.css';
+@import './breakpoints.css';

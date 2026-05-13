@@ -1,0 +1,70 @@
+/**
+ * Search Toggle Component - Header Slide Menu
+ * Matches component classes exactly
+ */
+
+.search-toggle-container {
+  position: relative;
+}
+
+.search-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none !important;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  color: var(--text-primary) !important;
+}
+
+.search-toggle:hover {
+  background-color: var(--bg-hover);
+  color: var(--color-primary) !important;
+  transform: translateY(-2px);
+}
+
+.search-toggle:focus {
+  outline: none;
+}
+
+.search-toggle--active {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.search-dropdown-wrapper {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1000;
+  margin-top: 8px;
+}
+
+/* Legacy support for old class names */
+.search-toggle__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  color: var(--text-primary);
+}
+
+.search-toggle__button:hover {
+  background-color: var(--bg-hover);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.search-toggle__button:focus {
+  outline: none;
+}

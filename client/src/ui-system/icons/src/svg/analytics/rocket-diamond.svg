@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Rocket body (larger) -->
+  <path d="M12 2 L16 14 L12 20 L8 14 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+  
+  <!-- Rocket nose (larger) -->
+  <path d="M12 2 L10 6 L14 6 Z" fill="currentColor"/>
+  
+  <!-- Rocket fins (larger) -->
+  <path d="M8 14 L4 18 L8 18 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+  <path d="M16 14 L20 18 L16 18 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+  
+  <!-- Rocket flame (larger) -->
+  <path d="M10 20 L12 23 L14 20" fill="none" stroke="currentColor" stroke-width="2"/>
+  
+  <!-- Rocket window -->
+  <circle cx="12" cy="10" r="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+</svg>

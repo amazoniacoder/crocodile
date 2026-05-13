@@ -1,0 +1,173 @@
+/**
+ * BlogPro Icon System Styles
+ * Base styles for icon components
+ */
+
+/* Base Icon Styles */
+.icon {
+  display: inline-block;
+  flex-shrink: 0;
+  transition: var(--transition-colors) var(--transition-base);
+}
+
+/* All Icon Variants */
+.icon--hamburger,
+.icon--x,
+.icon--search,
+.icon--login,
+.icon--logout,
+.icon--user,
+.icon--admin,
+.icon--users,
+.icon--palette,
+.icon--moon,
+.icon--sun,
+.icon--add,
+.icon--minus,
+.icon--refresh,
+.icon--arrow-up,
+.icon--arrow-down,
+.icon--arrow-left,
+.icon--arrow-right,
+.icon--house,
+.icon--edit,
+.icon--delete,
+.icon--save,
+.icon--gear,
+.icon--wrench,
+.icon--eye,
+.icon--eye-off,
+.icon--heart,
+.icon--share,
+.icon--download,
+.icon--upload,
+.icon--calendar,
+.icon--clock,
+.icon--bell,
+.icon--info,
+.icon--success,
+.icon--warning,
+.icon--error,
+.icon--alert-circle,
+.icon--check,
+.icon--circle,
+.icon--image,
+.icon--book,
+.icon--folder,
+.icon--video,
+.icon--audio,
+.icon--file,
+.icon--chart,
+.icon--cake-icing,
+.icon--smile-diamond,
+.icon--monkey-running,
+.icon--rocket-diamond,
+.icon--tree-diamond,
+.icon--puzzle,
+.icon--shopping-cart,
+.icon--credit-card,
+.icon--wallet,
+.icon--paypal,
+.icon--email,
+.icon--camera,
+.icon--status,
+.icon--grid,
+.icon--table,
+.icon--file-search,
+.icon--file-users,
+.icon--file-crown {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+}
+
+/* Icon Button Styles */
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  cursor: pointer;
+  transition: var(--button-transition);
+  position: relative;
+  outline: none;
+}
+
+.icon-button:focus-visible {
+  box-shadow: var(--input-shadow-focus);
+}
+
+.icon-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Compact Icon Button Sizes */
+.icon-button--sm {
+  padding: var(--space-1);
+  min-width: 24px;
+  min-height: 24px;
+  border-radius: var(--radius-md);
+}
+
+.icon-button--md {
+  padding: var(--space-2);
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: var(--radius-lg);
+}
+
+.icon-button--lg {
+  padding: var(--space-2);
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: var(--radius-lg);
+}
+
+/* Icon Button Variants */
+.icon-button--primary {
+  background: var(--button-primary-bg);
+  color: var(--button-primary-text);
+}
+
+.icon-button--primary:hover:not(:disabled) {
+  background: var(--button-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--button-shadow-hover);
+}
+
+.icon-button--secondary {
+  background: var(--bg-alt);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.icon-button--secondary:hover:not(:disabled) {
+  background: var(--bg-hover);
+  border-color: var(--border-hover);
+}
+
+.icon-button--ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.icon-button--ghost:hover:not(:disabled) {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.icon-button--danger {
+  background: var(--error-500);
+  color: white;
+}
+
+.icon-button--danger:hover:not(:disabled) {
+  background: var(--error-600);
+  transform: translateY(-1px);
+  box-shadow: var(--button-shadow-hover);
+}

@@ -1,0 +1,105 @@
+/**
+ * YouTube Patterns
+ * Styles specific to YouTube integration
+ */
+
+/* ─── YouTube Embed ──────────────────────────────────────────────────────── */
+
+.yt-embed__wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 500px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-top: var(--space-xs);
+  background: #000;
+}
+
+@media (max-width: 768px) {
+  .yt-embed__wrap {
+    min-height: auto;
+  }
+}
+
+.yt-embed__iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* ─── YouTube Channel Card ───────────────────────────────────────────────── */
+
+.yt-channel-card__logo-fallback {
+  color: #FF0000;
+}
+
+.yt-channel-card__link {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-medium);
+  color: #fff;
+  background: #FF0000;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background var(--transition-fast);
+}
+
+.yt-channel-card__link:hover {
+  background: #cc0000;
+}
+
+/* ─── YouTube Channel Picker ─────────────────────────────────────────────── */
+
+.youtube-channel-picker__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  gap: var(--space-md);
+  border-bottom: 1px solid var(--border-color);
+  transition: background var(--transition-fast);
+}
+
+.youtube-channel-picker__item:last-child {
+  border-bottom: none;
+}
+
+.youtube-channel-picker__item:hover {
+  background: var(--bg-hover);
+}
+
+.youtube-channel-picker__name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.youtube-channel-picker__name:hover {
+  color: var(--color-primary);
+}
+
+.youtube-channel-picker__name--clickable {
+  cursor: pointer;
+}
+
+.youtube-channel-picker__name--clickable:hover {
+  color: var(--color-primary);
+}

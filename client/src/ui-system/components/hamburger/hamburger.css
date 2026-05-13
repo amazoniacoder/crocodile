@@ -1,0 +1,59 @@
+/**
+ * BlogPro Hamburger Menu Component
+ * Mobile navigation toggle with icon switching
+ */
+
+.hamburger {
+  display: flex;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  color: var(--text-primary);
+}
+
+/* Smooth icon transition */
+.hamburger .icon {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Icon animation states */
+.hamburger--active .icon {
+  transform: rotate(90deg);
+}
+
+.hamburger:hover {
+  background-color: var(--bg-hover);
+}
+
+/* Mobile only - show hamburger (matches breakpoints.css) */
+@media (max-width: 767px) {
+  .hamburger {
+    display: flex !important;
+  }
+}
+
+/* Tablet and Desktop - hide hamburger */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none !important;
+  }
+}
+
+/* Remove conflicting header__hamburger styles - handled in header.css */
+
+/* Icon fallback if SVG doesn't load */
+#hamburger .icon {
+  color: var(--text-primary);
+}
+
+.hamburger:hover .icon {
+  color: var(--text-primary);
+}

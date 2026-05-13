@@ -1,0 +1,20 @@
+/* Menu links styles - Remove underlines from all navigation links */
+
+/* Navigation links - header classes styling handled by header.css and header-icons.css */
+
+/* Footer navigation links - footer classes styling handled by footer.css */
+
+/* Sidebar navigation links */
+.sidebar__nav-link,
+.admin-sidebar__link,
+
+/* Generic navigation links */
+.nav__link,
+.menu__link,
+
+/* Any class containing nav-link or menu-link */
+[class*="nav-link"],
+[class*="menu-link"] {
+  text-decoration: none !important;
+  cursor: pointer;
+}

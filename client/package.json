@@ -1,0 +1,17 @@
+{
+  "name": "news-aggregator-client",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@newsaggregator/shared": "*",
+    "lucide-react": "^0.525.0"
+  },
+  "devDependencies": {}
+}
