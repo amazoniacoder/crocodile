@@ -1,0 +1,41 @@
+# Build directories
+dist/
+build/
+coverage/
+
+# Distribution files
+client — копия/dist/
+client/dist/
+**/dist/**
+**/build/**
+
+# Generated files
+*.min.js
+*.bundle.js
+
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# SSL certificates
+ssl/
+
+# Test reports
+test-reports/
+playwright-report/
+
+# Database files
+*.db
+*.sqlite
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Temporary files
+*.tmp
+*.temp

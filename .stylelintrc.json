@@ -1,0 +1,19 @@
+{
+  "plugins": ["stylelint-selector-bem-pattern"],
+  "rules": {
+    "plugin/selector-bem-pattern": {
+      "preset": "bem",
+      "presetOptions": {
+        "namespace": ""
+      },
+      "componentName": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+      "componentSelectors": {
+        "initial": "^(\\.{componentName}(__[a-z][a-z0-9]*(-[a-z0-9]+)*)?(--[a-z][a-z0-9]*(-[a-z0-9]+)*)?|\\[.+\\])$"
+      }
+    },
+    "selector-class-pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z][a-z0-9]*(-[a-z0-9]+)*)?(--[a-z][a-z0-9]*(-[a-z0-9]+)*)?$",
+    "selector-id-pattern": null,
+    "selector-max-compound-selectors": 3,
+    "selector-max-specificity": "0,3,0"
+  }
+}
