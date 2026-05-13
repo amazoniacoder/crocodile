@@ -1,0 +1,33 @@
+name: Documentation Link Check
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'docs/**/*.md'
+      - 'README.md'
+      - 'CONTRIBUTING.md'
+  pull_request:
+    paths:
+      - 'docs/**/*.md'
+      - 'README.md'
+      - 'CONTRIBUTING.md'
+  schedule:
+    # Проверка каждый понедельник в 00:00 UTC
+    - cron: '0 0 * * 1'
+
+jobs:
+  markdown-link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check links in documentation
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'
+          use-verbose-mode: 'yes'
+          config-file: '.github/markdown-link-check-config.json'
+          folder-path: 'docs/'
+          file-path: './README.md, ./CONTRIBUTING.md'
+          max-depth: -1

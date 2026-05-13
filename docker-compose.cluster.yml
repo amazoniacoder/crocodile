@@ -1,0 +1,116 @@
+version: '3.8'
+
+services:
+  # Load Balancer (Nginx)
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx-cluster.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - app-node-1
+      - app-node-2
+    restart: unless-stopped
+    networks:
+      - cluster-network
+
+  # Application Node 1
+  app-node-1:
+    build: .
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - DATABASE_URL=postgres://news_user:news_password@postgres:5432/news_aggregator
+      - REDIS_URL=redis://redis:6379
+      - ADMIN_TOKEN=${ADMIN_TOKEN}
+      - NODE_ID=node-1
+    depends_on:
+      - postgres
+      - redis
+    restart: unless-stopped
+    networks:
+      - cluster-network
+    volumes:
+      - ./logs:/app/logs
+
+  # Application Node 2
+  app-node-2:
+    build: .
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - DATABASE_URL=postgres://news_user:news_password@postgres:5432/news_aggregator
+      - REDIS_URL=redis://redis:6379
+      - ADMIN_TOKEN=${ADMIN_TOKEN}
+      - NODE_ID=node-2
+    depends_on:
+      - postgres
+      - redis
+    restart: unless-stopped
+    networks:
+      - cluster-network
+    volumes:
+      - ./logs:/app/logs
+
+  # PostgreSQL Database
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      - POSTGRES_DB=news_aggregator
+      - POSTGRES_USER=news_user
+      - POSTGRES_PASSWORD=news_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./drizzle:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    networks:
+      - cluster-network
+
+  # Redis for caching and distributed coordination
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes --maxmemory 512mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    networks:
+      - cluster-network
+
+  # NER Service
+  ner-service:
+    build: ./ner-service
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    networks:
+      - cluster-network
+
+  # RSSHub for RSS feeds
+  rsshub:
+    image: diygod/rsshub
+    ports:
+      - "1200:1200"
+    environment:
+      - NODE_ENV=production
+      - CACHE_TYPE=redis
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+    restart: unless-stopped
+    networks:
+      - cluster-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  cluster-network:
+    driver: bridge

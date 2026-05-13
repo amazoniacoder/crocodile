@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  ner-service:
+    build: ./ner-service
+    restart: unless-stopped
+
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgres://postgres:12345@db:5432/porto1
+      - REDIS_URL=redis://redis:6379
+      - NER_SERVICE_URL=http://ner-service:8001
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - redis
+      - ner-service
+    restart: unless-stopped
+    volumes:
+      - ./public/uploads:/app/public/uploads
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=porto1
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - app
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
