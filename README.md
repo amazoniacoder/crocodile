@@ -84,7 +84,7 @@
 ### Установка
 
 ```bash
-git clone https://github.com/Chucha-blog/crocodile.git
+git clone git@github.com:amazoniacoder/crocodile.git
 cd crocodile
 npm install
 ```
