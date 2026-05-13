@@ -85,3 +85,9 @@ public/uploads/documents/*
 __pycache__/
 *.pyc
 ner-service/__pycache__/
+
+# Amazon Q IDE plugin
+.amazonq/
+
+# Temp / one-off test files
+TELEGRAM_QUICK_TEST.md
