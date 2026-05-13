@@ -71,15 +71,15 @@ test-results/
 .pm2/
 
 # User uploads — never commit real files
-public/uploads/avatars/*.webp
-public/uploads/images/*.webp
-public/uploads/thumbnails/*.webp
-public/uploads/editor/images/*.webp
-public/uploads/hero/*.webp
-public/uploads/videos/*
-public/uploads/audio/*
-public/uploads/documents/*
-!public/uploads/**/.gitkeep
+public/uploads/avatars/
+public/uploads/images/
+public/uploads/thumbnails/
+public/uploads/editor/images/
+public/uploads/editor/temp/
+public/uploads/hero/
+public/uploads/videos/
+public/uploads/audio/
+public/uploads/documents/
 
 # Python cache
 __pycache__/
