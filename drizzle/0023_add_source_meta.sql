@@ -1,0 +1,3 @@
+ALTER TABLE news_sources
+  ADD COLUMN IF NOT EXISTS description TEXT,
+  ADD COLUMN IF NOT EXISTS logo_url TEXT;
