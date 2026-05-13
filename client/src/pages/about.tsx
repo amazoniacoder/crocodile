@@ -6,24 +6,14 @@ import { ContactButton, ContactPanel } from '../components/contact';
 
 const SUPPORT_CHANNELS = [
   {
-    title: 'СБП (Россия)',
-    value: 'Оплата по QR или номеру телефона',
-    note: 'Самый быстрый способ для РФ.',
+    title: 'ЮМoney',
+    value: '4100XXXXXXXXXXXXXXX',
+    note: 'Оплата картой или через ЮМoney.',
   },
   {
-    title: 'ЮMoney / банковская карта',
-    value: 'Поддержка разовым платежом',
-    note: 'Классическая оплата картой.',
-  },
-  {
-    title: 'USDT (TRC20)',
-    value: 'Сеть TRON',
-    note: 'Международные переводы.',
-  },
-  {
-    title: 'BTC / ETH',
-    value: 'Криптокошелек проекта',
-    note: 'Криптовалюта.',
+    title: 'Озон Банк (СБП)',
+    value: '+7XXXXXXXXXX',
+    note: 'Перевод по номеру телефона через СБП.',
   },
 ];
 
@@ -39,6 +29,7 @@ const YOOMONEY_RE = /юmoney|yoomoney/i;
 const SBP_RE = /сбп|sbp/i;
 const USDT_RE = /usdt/i;
 const BTC_RE = /btc|eth/i;
+const OZON_RE = /озон|ozon/i;
 
 const PRESET_AMOUNTS = [100, 300, 500, 1000];
 
@@ -74,6 +65,13 @@ const LogoBTC = () => (
   </svg>
 );
 
+const LogoOzon = () => (
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="Озон">
+    <rect width="32" height="32" rx="8" fill="#005BFF"/>
+    <text x="16" y="21" textAnchor="middle" fill="white" fontSize="11" fontWeight="700" fontFamily="Arial, sans-serif">OZON</text>
+  </svg>
+);
+
 const LogoGeneric = () => (
   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="Оплата">
     <rect width="32" height="32" rx="8" fill="var(--bg-alt)"/>
@@ -86,6 +84,7 @@ const MethodLogo: React.FC<{ title: string }> = ({ title }) => {
   if (YOOMONEY_RE.test(title)) return <LogoYooMoney />;
   if (USDT_RE.test(title)) return <LogoUSDT />;
   if (BTC_RE.test(title)) return <LogoBTC />;
+  if (OZON_RE.test(title)) return <LogoOzon />;
   return <LogoGeneric />;
 };
 

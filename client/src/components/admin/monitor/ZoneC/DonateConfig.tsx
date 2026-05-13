@@ -13,6 +13,7 @@ const YOOMONEY_RE = /юmoney|yoomoney/i;
 const SBP_RE = /сбп|sbp/i;
 const USDT_RE = /usdt/i;
 const BTC_RE = /btc|eth/i;
+const OZON_RE = /озон|ozon/i;
 
 type DonateMethod = {
   id: string;
@@ -24,24 +25,17 @@ type DonateMethod = {
 
 const DEFAULT_METHODS: DonateMethod[] = [
   {
-    id: 'sbp',
-    title: 'СБП (Россия)',
-    value: '+7XXXXXXXXXX',
-    note: 'Самый быстрый и удобный способ для РФ.',
-    href: '',
-  },
-  {
     id: 'yoomoney',
     title: 'ЮMoney',
     value: '4100XXXXXXXXXXXXXXX',
-    note: 'Подходит тем, кому удобнее классическая оплата.',
+    note: 'Оплата картой или через ЮMoney.',
     href: '',
   },
   {
-    id: 'usdt',
-    title: 'USDT (TRC20)',
-    value: 'TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-    note: 'Для международной поддержки и крипто-переводов.',
+    id: 'ozon',
+    title: 'Озон Банк (СБП)',
+    value: '+7XXXXXXXXXX',
+    note: 'Перевод по номеру телефона через СБП.',
     href: '',
   },
 ];
@@ -78,6 +72,13 @@ const LogoBTC = () => (
   </svg>
 );
 
+const LogoOzon = () => (
+  <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+    <rect width="32" height="32" rx="8" fill="#005BFF"/>
+    <text x="16" y="21" textAnchor="middle" fill="white" fontSize="11" fontWeight="700" fontFamily="Arial, sans-serif">OZON</text>
+  </svg>
+);
+
 const LogoGeneric = () => (
   <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
     <rect width="32" height="32" rx="8" fill="var(--bg-alt)" stroke="var(--border-color)"/>
@@ -90,6 +91,7 @@ const MethodLogo: React.FC<{ title: string }> = ({ title }) => {
   if (YOOMONEY_RE.test(title)) return <LogoYooMoney />;
   if (USDT_RE.test(title)) return <LogoUSDT />;
   if (BTC_RE.test(title)) return <LogoBTC />;
+  if (OZON_RE.test(title)) return <LogoOzon />;
   return <LogoGeneric />;
 };
 
