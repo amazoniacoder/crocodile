@@ -69,3 +69,19 @@ test-results/
 
 # PM2
 .pm2/
+
+# User uploads — never commit real files
+public/uploads/avatars/*.webp
+public/uploads/images/*.webp
+public/uploads/thumbnails/*.webp
+public/uploads/editor/images/*.webp
+public/uploads/hero/*.webp
+public/uploads/videos/*
+public/uploads/audio/*
+public/uploads/documents/*
+!public/uploads/**/.gitkeep
+
+# Python cache
+__pycache__/
+*.pyc
+ner-service/__pycache__/
