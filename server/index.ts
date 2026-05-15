@@ -25,6 +25,9 @@ import * as nodeCron from 'node-cron';
 
 const app = express();
 
+// Trust Nginx reverse proxy
+app.set('trust proxy', 1);
+
 // Комплексная безопасность
 app.use(comprehensiveSecurityMiddleware);
 app.use(compressionMiddleware);
