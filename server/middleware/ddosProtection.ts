@@ -127,9 +127,9 @@ export class DdosProtection {
           return config.max * 10;
         }
 
-        // Admin endpoints get stricter limits
+        // Admin endpoints get higher limits (monitor page polls frequently)
         if (req.path.startsWith('/api/admin')) {
-          return Math.floor(config.max * 0.1);
+          return config.max * 10;
         }
 
         // API endpoints
