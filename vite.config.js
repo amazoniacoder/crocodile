@@ -11,7 +11,7 @@ export default defineConfig({
     VitePWA({
       registerType: "prompt",
       strategies: "injectManifest",
-      srcDir: "client/src",
+      srcDir: "src",
       filename: "sw.ts",
       injectManifest: {
         injectionPoint: "self.__WB_MANIFEST",
