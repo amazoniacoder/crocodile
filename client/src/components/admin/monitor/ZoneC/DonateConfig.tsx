@@ -10,9 +10,7 @@ const DONATE_KEY = 'donate_methods_json';
 const ALLOWED_PROTOCOLS = new Set(['https:', 'http:', 'tg:', 'mailto:']);
 
 const YOOMONEY_RE = /юmoney|yoomoney/i;
-const SBP_RE = /сбп|sbp/i;
-const USDT_RE = /usdt/i;
-const BTC_RE = /btc|eth/i;
+const SBP_RE = /телефон|сбп|sbp/i;
 const OZON_RE = /озон|ozon/i;
 
 type DonateMethod = {
@@ -25,17 +23,17 @@ type DonateMethod = {
 
 const DEFAULT_METHODS: DonateMethod[] = [
   {
-    id: 'yoomoney',
-    title: 'ЮMoney',
-    value: '4100XXXXXXXXXXXXXXX',
-    note: 'Оплата картой или через ЮMoney.',
+    id: 'card',
+    title: 'Банковская карта (Озон)',
+    value: 'XXXX XXXX XXXX XXXX',
+    note: 'Перевод по номеру карты через банковское приложение.',
     href: '',
   },
   {
-    id: 'ozon',
-    title: 'Озон Банк (СБП)',
+    id: 'sbp',
+    title: 'По номеру телефона (СБП)',
     value: '+7XXXXXXXXXX',
-    note: 'Перевод по номеру телефона через СБП.',
+    note: 'Перевод через СБП по номеру телефона.',
     href: '',
   },
 ];
@@ -48,27 +46,6 @@ const LogoSBP = () => (
     <path d="M7 10.5L13.5 16 7 21.5V10.5Z" fill="#6CDB6C"/>
     <path d="M7 10.5H17.5L25 16H13.5L7 10.5Z" fill="#FFFFFF"/>
     <path d="M7 21.5H17.5L25 16H13.5L7 21.5Z" fill="#FF4E50"/>
-  </svg>
-);
-
-const LogoYooMoney = () => (
-  <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
-    <rect width="32" height="32" rx="8" fill="#8B3FFD"/>
-    <text x="16" y="21" textAnchor="middle" fill="white" fontSize="13" fontWeight="700" fontFamily="Arial, sans-serif">ЮМ</text>
-  </svg>
-);
-
-const LogoUSDT = () => (
-  <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
-    <rect width="32" height="32" rx="8" fill="#26A17B"/>
-    <text x="16" y="21" textAnchor="middle" fill="white" fontSize="11" fontWeight="700" fontFamily="Arial, sans-serif">USDT</text>
-  </svg>
-);
-
-const LogoBTC = () => (
-  <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
-    <rect width="32" height="32" rx="8" fill="#F7931A"/>
-    <text x="16" y="21" textAnchor="middle" fill="white" fontSize="13" fontWeight="700" fontFamily="Arial, sans-serif">₿</text>
   </svg>
 );
 
@@ -88,18 +65,11 @@ const LogoGeneric = () => (
 
 const MethodLogo: React.FC<{ title: string }> = ({ title }) => {
   if (SBP_RE.test(title)) return <LogoSBP />;
-  if (YOOMONEY_RE.test(title)) return <LogoYooMoney />;
-  if (USDT_RE.test(title)) return <LogoUSDT />;
-  if (BTC_RE.test(title)) return <LogoBTC />;
   if (OZON_RE.test(title)) return <LogoOzon />;
   return <LogoGeneric />;
 };
 
-const getQrValue = (m: DonateMethod): string => {
-  if (BTC_RE.test(m.title) && !m.value.startsWith('bitcoin:')) return `bitcoin:${m.value}`;
-  if (USDT_RE.test(m.title) && !m.value.startsWith('tron:')) return `tron:${m.value}`;
-  return m.value;
-};
+const getQrValue = (m: DonateMethod): string => m.value.replace(/\s/g, '');
 
 const uid = () => `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 

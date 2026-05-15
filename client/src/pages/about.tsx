@@ -6,14 +6,14 @@ import { ContactButton, ContactPanel } from '../components/contact';
 
 const SUPPORT_CHANNELS = [
   {
-    title: 'ЮМoney',
-    value: '4100XXXXXXXXXXXXXXX',
-    note: 'Оплата картой или через ЮМoney.',
+    title: 'Банковская карта (Озон)',
+    value: 'XXXX XXXX XXXX XXXX',
+    note: 'Перевод по номеру карты через банковское приложение.',
   },
   {
-    title: 'Озон Банк (СБП)',
+    title: 'По номеру телефона (СБП)',
     value: '+7XXXXXXXXXX',
-    note: 'Перевод по номеру телефона через СБП.',
+    note: 'Перевод через СБП по номеру телефона.',
   },
 ];
 
@@ -25,15 +25,17 @@ type DonateMethod = {
 };
 
 const isRequisite = (m: DonateMethod): boolean => !m.href;
-const YOOMONEY_RE = /юmoney|yoomoney/i;
-const SBP_RE = /сбп|sbp/i;
-const USDT_RE = /usdt/i;
-const BTC_RE = /btc|eth/i;
-const OZON_RE = /озон|ozon/i;
-
-const PRESET_AMOUNTS = [100, 300, 500, 1000];
 
 // ── Логотипы ─────────────────────────────────────────────────────────────────
+
+const LogoGeneric = () => (
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="Оплата">
+    <rect width="32" height="32" rx="8" fill="var(--bg-alt)"/>
+    <path d="M8 12h16M8 16h10M8 20h6" stroke="var(--text-muted)" strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+);
+
+const SBP_RE = /телефон|сбп|sbp/i;
 
 const LogoSBP = () => (
   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="СБП">
@@ -44,27 +46,6 @@ const LogoSBP = () => (
   </svg>
 );
 
-const LogoYooMoney = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="ЮMoney">
-    <rect width="32" height="32" rx="8" fill="#8B3FFD"/>
-    <text x="16" y="21" textAnchor="middle" fill="white" fontSize="13" fontWeight="700" fontFamily="Arial, sans-serif">ЮМ</text>
-  </svg>
-);
-
-const LogoUSDT = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="USDT">
-    <rect width="32" height="32" rx="8" fill="#26A17B"/>
-    <text x="16" y="21" textAnchor="middle" fill="white" fontSize="11" fontWeight="700" fontFamily="Arial, sans-serif">USDT</text>
-  </svg>
-);
-
-const LogoBTC = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="BTC">
-    <rect width="32" height="32" rx="8" fill="#F7931A"/>
-    <text x="16" y="21" textAnchor="middle" fill="white" fontSize="13" fontWeight="700" fontFamily="Arial, sans-serif">₿</text>
-  </svg>
-);
-
 const LogoOzon = () => (
   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="Озон">
     <rect width="32" height="32" rx="8" fill="#005BFF"/>
@@ -72,18 +53,10 @@ const LogoOzon = () => (
   </svg>
 );
 
-const LogoGeneric = () => (
-  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="Оплата">
-    <rect width="32" height="32" rx="8" fill="var(--bg-alt)"/>
-    <path d="M8 12h16M8 16h10M8 20h6" stroke="var(--text-muted)" strokeWidth="2" strokeLinecap="round"/>
-  </svg>
-);
+const OZON_RE = /озон|ozon/i;
 
 const MethodLogo: React.FC<{ title: string }> = ({ title }) => {
   if (SBP_RE.test(title)) return <LogoSBP />;
-  if (YOOMONEY_RE.test(title)) return <LogoYooMoney />;
-  if (USDT_RE.test(title)) return <LogoUSDT />;
-  if (BTC_RE.test(title)) return <LogoBTC />;
   if (OZON_RE.test(title)) return <LogoOzon />;
   return <LogoGeneric />;
 };
@@ -110,91 +83,18 @@ const IconQr = () => (
   </svg>
 );
 
-const getQrValue = (item: DonateMethod): string => {
-  const v = item.value;
-  if (BTC_RE.test(item.title) && !v.startsWith('bitcoin:')) return `bitcoin:${v}`;
-  if (USDT_RE.test(item.title) && !v.startsWith('tron:')) return `tron:${v}`;
-  return v;
-};
-
-// ── ЮMoney виджет ─────────────────────────────────────────────────────────────
-
-const YooMoneyWidget: React.FC<{ wallet: string; note?: string }> = ({ wallet, note }) => {
-  const [amount, setAmount] = useState<number | ''>(100);
-  const [custom, setCustom] = useState('');
-
-  const finalAmount = custom ? Number(custom) : (amount || 0);
-  const valid = Number.isFinite(finalAmount) && (finalAmount as number) > 0;
-
-  const handlePreset = (v: number) => { setAmount(v); setCustom(''); };
-  const handleCustom = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCustom(e.target.value.replace(/\D/g, ''));
-    setAmount('');
-  };
-  const handlePay = () => {
-    if (!valid) return;
-    const url = `https://yoomoney.ru/quickpay/confirm.xml?receiver=${encodeURIComponent(wallet)}&quickpay-form=donate&targets=${encodeURIComponent('Поддержка Crocodile.press')}&sum=${finalAmount}&label=donate`;
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
-
-  return (
-    <div className="about__donate-item">
-      <div className="about__donate-item-header">
-        <LogoYooMoney />
-        <div className="about__donate-item-meta">
-          <p className="about__donate-item-title">ЮMoney</p>
-          {note && <p className="about__donate-item-note">{note}</p>}
-        </div>
-      </div>
-      <div className="about__donate-ym-form">
-        <p className="about__donate-ym-label">Сумма, ₽</p>
-        <div className="about__donate-ym-presets">
-          {PRESET_AMOUNTS.map(v => (
-            <button
-              key={v}
-              type="button"
-              className={`about__donate-ym-preset${amount === v && !custom ? ' about__donate-ym-preset--active' : ''}`}
-              onClick={() => handlePreset(v)}
-            >
-              {v}
-            </button>
-          ))}
-        </div>
-        <input
-          className="about__donate-ym-input"
-          type="text"
-          inputMode="numeric"
-          placeholder="Своя сумма"
-          value={custom}
-          onChange={handleCustom}
-        />
-        <button
-          className="about__donate-ym-pay"
-          type="button"
-          onClick={handlePay}
-          disabled={!valid}
-        >
-          Перейти к оплате →
-        </button>
-      </div>
-    </div>
-  );
-};
+const getQrValue = (item: DonateMethod): string => item.value.replace(/\s/g, '');
 
 // ── Карточка метода ───────────────────────────────────────────────────────────
 
 const DonateCard: React.FC<{ item: DonateMethod }> = ({ item }) => {
-  if (YOOMONEY_RE.test(item.title)) {
-    return <YooMoneyWidget wallet={item.value} note={item.note} />;
-  }
-
   const [copied, setCopied] = useState(false);
   const [qrOpen, setQrOpen] = useState(false);
   const showCopy = isRequisite(item);
   const showQr = isRequisite(item);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(item.value).then(() => {
+    navigator.clipboard.writeText(item.value.replace(/\s/g, '')).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     });
