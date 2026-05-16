@@ -15,7 +15,7 @@
     "dev:client": "wait-on http://localhost:5000/api/health/live --timeout 30000 && vite",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build",
-    "build:server": "esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
+    "build:server": "esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist --external:os --external:http --external:https --external:fs --external:path --external:crypto --external:stream --external:net --external:tls --external:zlib --external:url --external:util --external:events --external:buffer --external:child_process",
     "start": "cross-env NODE_ENV=production node dist/index.js",
     "check": "tsc",
     "clean": "rimraf node_modules/.vite client/node_modules/.vite dist client/dist",
