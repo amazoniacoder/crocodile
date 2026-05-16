@@ -1,5 +1,5 @@
 // shared/types/schema.ts
-import { pgTable, serial, varchar, text, integer, timestamp, boolean, customType, jsonb, decimal, date } from 'drizzle-orm/pg-core';
+import { pgTable, serial, varchar, text, integer, timestamp, boolean, customType, jsonb, decimal, date, unique } from 'drizzle-orm/pg-core';
 
 const tsvector = customType<{ data: string }>({
   dataType: () => 'tsvector',
@@ -121,7 +121,7 @@ export const hotEntities = pgTable('hot_entities', {
   mentionCount: integer('mention_count').notNull().default(0),
   periodStart:  timestamp('period_start').notNull(),
   updatedAt:    timestamp('updated_at').defaultNow().notNull(),
-});
+}, (t) => [unique().on(t.entityText, t.entityType)]);
 
 // API-ключи для публичного API
 export const apiKeys = pgTable('api_keys', {
