@@ -1,5 +1,5 @@
 // shared/types/schema.ts
-import { pgTable, serial, varchar, text, integer, timestamp, boolean, customType, jsonb, decimal, date, unique } from 'drizzle-orm/pg-core';
+import { pgTable, serial, varchar, text, integer, timestamp, boolean, customType, jsonb, decimal, date, unique, uniqueIndex } from 'drizzle-orm/pg-core';
 
 const tsvector = customType<{ data: string }>({
   dataType: () => 'tsvector',
@@ -179,7 +179,7 @@ export const weatherForecasts = pgTable('weather_forecasts', {
   kpLevel:           varchar('kp_level', { length: 20 }),
   uvIndexMax:        decimal('uv_index_max', { precision: 3, scale: 1 }),
   fetchedAt:         timestamp('fetched_at').defaultNow().notNull(),
-});
+}, (t) => [uniqueIndex('weather_forecasts_location_date_unique').on(t.locationId, t.forecastDate)]);
 
 export const weatherHourlyForecasts = pgTable('weather_hourly_forecasts', {
   id:           serial('id').primaryKey(),
@@ -194,7 +194,7 @@ export const weatherHourlyForecasts = pgTable('weather_hourly_forecasts', {
   precipitation: decimal('precipitation', { precision: 5, scale: 1 }),
   pressureHpa:  decimal('pressure_hpa', { precision: 6, scale: 1 }),
   fetchedAt:    timestamp('fetched_at').defaultNow().notNull(),
-});
+}, (t) => [uniqueIndex('weather_hourly_location_dt_unique').on(t.locationId, t.forecastDt)]);
 
 // Аудит административных действий
 export const adminAuditLog = pgTable('admin_audit_log', {
